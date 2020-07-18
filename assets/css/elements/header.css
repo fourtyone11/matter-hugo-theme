@@ -1,0 +1,17 @@
+header {
+  background-color: transparent;
+  border-radius: none;
+  color: var(--secondary-color);
+
+  @media (--small-viewport) {
+    padding: 0.5rem 1rem;
+    background: var(--secondary-color);
+    max-width: 1280px;
+    margin: 0 auto;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+

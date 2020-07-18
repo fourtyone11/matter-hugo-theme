@@ -1,0 +1,54 @@
+.c-header {
+  color: var(--secondary-color);
+  @media (--small-viewport) {
+    color: var(--main-color);
+  }
+  &__search {
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 4px 4px 4px 32px;
+    background: url('/icons/search-24px.svg') white no-repeat scroll 4px 4px / 24px 24px;
+    height: 2rem;
+  }
+  &__site-name {
+    font-size: 20px;
+    line-height: 1;
+
+    @media (--small-viewport) {
+      font-size: 24px;
+    }
+  }
+  &__right-side {
+    display: none;
+
+    @media (--small-viewport) {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.c-menu {
+  list-style-type: none;
+  display: flex;
+  margin-left: 1rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  &__item {
+    margin-left: 1rem;
+    &:first-of-type {
+      margin-left: 0;
+    }
+  }
+  &__link {
+    text-decoration: none;
+    color: var(--main-color);
+
+    &:hover {
+      border-bottom: 2px solid var(--border-color);
+    }
+    &:visited {
+      color: var(--accent-color);
+    }
+  }
+}

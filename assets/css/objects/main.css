@@ -1,0 +1,16 @@
+.o-monospace {
+  font-family: var(--monospace);
+}
+.o-root-container {
+  padding: 1.25rem;
+  background-color: var(--main-color);
+  box-shadow: 8px 8px 0px var(--shadow-color);
+  width: calc(100% - 8px);
+  max-width: 1312px;
+  color: var(--secondary-color);
+}
+
+.o-image-wrapper {
+  max-width: 350px;
+  max-height: 350px;
+}

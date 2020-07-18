@@ -1,0 +1,34 @@
+.c-tech-stack {
+  &__list {
+    margin: 0.5rem 0;
+  }
+  &__link {
+    color: var(--secondary-color);
+    border:none;
+    &:any {
+      color: var(--secondary-color);
+    }
+    &:hover {
+      background: none;
+      text-decoration: underline;
+      border: none;
+    }
+  }
+  &__item {
+    display: inline-block;
+    padding: 0.3rem;
+    margin-top: 0.5rem;
+    border-radius: 6px;
+    background-color: var(--extra-color);
+    &--svelte {
+      background-color: var(--extra-red);
+    }
+    &--firebase {
+      background-color: var(--extra-orange);
+    }
+    &--typescript,
+    &--ts{
+      background-color: var(--extra-ts);
+    }
+  }
+}

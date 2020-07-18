@@ -1,0 +1,47 @@
+<li>
+  <article class="c-project-card">
+    {{with .Params.image}}
+      <div class="o-image-wrapper">
+        <div class="c-project-card__picture">
+          <img class="c-project-card__image" srcset="{{.}}-2x.jpg 2x" src="{{$.Site.BaseURL}}{{.}}.jpg" alt="image for {{$.Title}} project" />
+        </div>
+      </div>
+    {{end}}
+    <a class="c-project-card__link" href="{{.Permalink}}">
+      <h2 class="c-project-card__title">{{.Title}}</h2>
+      <div class="c-project-card__description">{{.Description}}</div>
+    </a>
+    <section>
+      <h3>Links</h3>
+      <div class="u-mt--8">
+        <a class="c-project-card__link" href="{{.Params.project_link}}">
+          link to app
+        </a>
+        {{with isset .Params "project_repo"}}
+          <a class="c-project-card__repo" href="{{.}}">
+            {{$url := urls.Parse . }}
+            {{if eq $url "gitlab.com"}}
+              <img src="gitlab.svg" alt="gitlab project repository" />
+            {{else if eq $url "github.com"}}
+              <img src="github.svg" alt="github project repository" />
+            {{end}}
+          </a>
+        {{end}}
+      </div>
+    </section>
+    {{with .Params.tech_stack}}
+      <section class="c-tech-stack">
+        <h3>
+          Tech Stack
+        </h3>
+        <ul class="c-tech-stack__list">
+          {{range .}}
+            <li class="c-tech-stack__item c-tech-stack__item--{{.name}}">
+              <a class="c-tech-stack__link" target="_black" href="{{.link}}">{{.name}}</a>
+            </li>
+          {{end}}
+        </ul>
+      {{end}}
+      </section>
+  </article>
+</li>

@@ -1,0 +1,30 @@
+{{ define "main" }}
+  <main aria-role="main">
+    <div class="c-hero">
+      <h1 class="">
+        Welcome to my website
+      </h1>
+      <p>
+        Here you’ll find my blog and projects
+      </p>
+    </div>
+    <section class="c-site-section projects">
+      <h2 class="">Projects</h2>
+      <ul class="">
+        {{$projectsPages := where .Site.RegularPages "Section" "projects"}}
+        {{ range $projectsPages }}
+          {{ .Render "li"}}
+        {{ end }}
+      </ul>
+    </section>
+    <section class="c-site-section posts">
+      <h2>Posts</h2>
+      <ul>
+        {{$postsPages := where .Site.RegularPages "Section" "posts"}}
+        {{ range $postsPages }}
+          {{ .Render "li"}}
+        {{ end }}
+      </ul>
+    </section>
+  </main>
+{{ end }}

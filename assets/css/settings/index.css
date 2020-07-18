@@ -1,0 +1,19 @@
+:root {
+  --main-color: hsl(0, 0%, 20%);
+  --secondary-color: hsl(0, 0%, 93%);
+  --border-color: hsl(0, 0%, 0%);
+  --border-color-light: hsl(0, 0%, 93%);
+  --bg-color: hsl(0, 0%, 66%);
+  --shadow-color: hsla(0, 0%, 0%, 0.25);
+
+  --extra-color: hsl(227, 11%, 45%);
+  --extra-red: hsl(14,100%,50%);
+  --extra-orange: hsl(35,100%,58%);
+  --extra-ts: hsl(214,51%,33%);
+
+  --sans-serif: 'Work Sans', sans-serif;
+  --serif: 'Playfair Display', serif;
+  --monospace: 'Share Tech Mono', monospace;
+}
+
+@custom-media --small-viewport (min-width: 42rem);
