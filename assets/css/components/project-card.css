@@ -14,5 +14,15 @@
   &__description {
 
   }
+  &__repo {
+    background: transparent;
+    text-decoration: none;
+    border:none;
+    &:hover {
+      background: transparent;
+      text-decoration: none;
+      border:none;
+    }
+  }
 }
 

@@ -1,0 +1,28 @@
+.c-menu {
+  list-style-type: none;
+  display: flex;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  @media(--medium-viewport) {
+    margin-left: 1rem;
+  }
+  &__item {
+    margin-left: 1rem;
+    &:first-of-type {
+      margin-left: 0;
+    }
+  }
+  &__link {
+    text-decoration: none;
+    color: var(--main-color);
+
+    &:hover {
+      background-color: transparent;
+      border-bottom: 2px solid var(--border-color);
+    }
+    &:visited {
+      color: var(--accent-color);
+    }
+  }
+}

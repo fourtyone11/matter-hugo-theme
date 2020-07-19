@@ -17,6 +17,12 @@ const UTILITIES_FOLDER = path.resolve(ASSETS_CSS_FOLDER, "utilities");
 const normalizecssURL =
   "https://necolas.github.io/normalize.css/8.0.1/normalize.css";
 
+const layerRegex = /(components|elements|generic|objects|settings|utilities)/
+
+function isLayerExist(name) {
+  return layerRegex.test(name)
+}
+
 function setupITCSS() {
   const styleFileContent = `
 /* settings */
@@ -151,6 +157,10 @@ program
   .description("generates css layer file")
   .option("-l, --layer <layer>", "itcss layer")
   .action((name, options) => {
+    if(!isLayerExist(options.layer)) {
+      console.log(chalk.red('layer does not exist'))
+      process.exit(1)
+    }
     fs.writeFileSync(
       path.resolve(ASSETS_CSS_FOLDER, `${options.layer}`, `${name}.css`),
       ""
@@ -175,6 +185,10 @@ program
   .description("deletes css file and layer")
   .option("-l, --layer <layer>", "itcss layer")
   .action((name, options) => {
+    if(!isLayerExist(options.layer)) {
+      console.log(chalk.red('layer does not exist'))
+      process.exit(1)
+    }
     const filename = path.resolve(
       ASSETS_CSS_FOLDER,
       `${options.layer}`,

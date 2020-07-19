@@ -16,6 +16,8 @@
 @import "elements/list.css";
 @import "elements/paragraph.css";
 @import "elements/section.css";
+@import "elements/footer.css";
+@import "elements/time.css";
 /* end */
 
 /* objects */
@@ -29,9 +31,11 @@
 @import "components/tech-stack.css";
 @import "components/site-section.css";
 @import "components/bottom-menu.css";
+@import "components/menu.css";
 /* end */
 
 /* utilities */
 @import "utilities/spacing.css";
 @import "utilities/display.css";
+@import "utilities/flex.css";
 /* end */

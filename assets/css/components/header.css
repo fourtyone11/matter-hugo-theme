@@ -21,27 +21,3 @@
   }
 }
 
-.c-menu {
-  list-style-type: none;
-  display: flex;
-  margin-left: 1rem;
-  margin-top: 0;
-  margin-bottom: 0;
-  &__item {
-    margin-left: 1rem;
-    &:first-of-type {
-      margin-left: 0;
-    }
-  }
-  &__link {
-    text-decoration: none;
-    color: var(--main-color);
-
-    &:hover {
-      border-bottom: 2px solid var(--border-color);
-    }
-    &:visited {
-      color: var(--accent-color);
-    }
-  }
-}

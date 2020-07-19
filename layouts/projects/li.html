@@ -16,17 +16,17 @@
     </a>
     <section>
       <h3>Links</h3>
-      <div class="u-mt--8">
+      <div class="c-project-card__links-wrapper">
         <a class="c-project-card__link" href="{{.Params.project_link}}">
           link to app
         </a>
-        {{with isset .Params "project_repo"}}
+        {{with .Params.project_repo}}
           <a class="c-project-card__repo" href="{{.}}">
             {{$url := urls.Parse . }}
-            {{if eq $url "gitlab.com"}}
-              <img src="gitlab.svg" alt="gitlab project repository" />
-            {{else if eq $url "github.com"}}
-              <img src="github.svg" alt="github project repository" />
+            {{if eq $url.Host "gitlab.com"}}
+              <img width="32" height="32" src="/icons/gitlab-icon-rgb.svg" alt="gitlab project repository" />
+            {{else if eq $url.Host "github.com"}}
+              <img width="32" height="32" src="github.svg" alt="github project repository" />
             {{end}}
           </a>
         {{end}}
