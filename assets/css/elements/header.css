@@ -3,7 +3,7 @@ header {
   border-radius: none;
   color: var(--secondary-color);
 
-  @media (--small-viewport) {
+  @media (--medium-viewport) {
     padding: 0.5rem 1rem;
     background: var(--secondary-color);
     max-width: 1280px;

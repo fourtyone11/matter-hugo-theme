@@ -1,2 +1,18 @@
 <li>
+  <a href={{.Permalink}} class="">
+    <div class="o-image-wrapper">
+      <div class="o-image-wrapper__picture">
+        {{$image := .Resources.GetMatch "preview.{jpg,png}"}}
+        {{with $image}}
+          {{$small := .Resize "480x"}}
+          {{$medium := .Resize "600x"}}
+          <img class="o-image-wrapper__image" srcset="{{$small.Permalink}} 480w, {{$medium.Permalink}} 672w" src="{{$medium.Permalink}}" alt="image for {{$.Title}} project" />
+        {{end}}
+      </div>
+    </div>
+    <article class="c-blog-card">
+      <h2>{{.Title}}</h2>
+      <time datetime="{{.Date.Format "2006-02-01"}}">{{.Date}}</time>
+    </article>
+  </a>
 </li>

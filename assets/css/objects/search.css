@@ -1,0 +1,7 @@
+.o-search {
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 4px 4px 4px 32px;
+  background: url('/icons/search-24px.svg') white no-repeat scroll 4px 4px / 24px 24px;
+  height: 2rem;
+}

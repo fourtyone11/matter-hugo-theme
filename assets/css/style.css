@@ -20,6 +20,7 @@
 
 /* objects */
 @import "objects/main.css";
+@import "objects/search.css";
 /* end */
 
 /* components */
@@ -27,8 +28,10 @@
 @import "components/project-card.css";
 @import "components/tech-stack.css";
 @import "components/site-section.css";
+@import "components/bottom-menu.css";
 /* end */
 
 /* utilities */
 @import "utilities/spacing.css";
+@import "utilities/display.css";
 /* end */

@@ -16,4 +16,6 @@
   --monospace: 'Share Tech Mono', monospace;
 }
 
-@custom-media --small-viewport (min-width: 42rem);
+@custom-media --small-viewport (min-width: 20rem);
+@custom-media --medium-viewport (min-width: 42rem);
+@custom-media --large-viewport (min-width: 66rem);
