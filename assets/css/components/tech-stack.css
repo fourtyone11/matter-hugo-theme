@@ -17,7 +17,6 @@
   &__item {
     display: inline-block;
     padding: 0.3rem;
-    margin-top: 0.5rem;
     border-radius: 6px;
     background-color: var(--extra-color);
     &--svelte {

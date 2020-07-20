@@ -1,0 +1,21 @@
+.c-blog-card {
+  color: var(--secondary-color);
+  &__link {
+    display: block;
+    &:hover .c-blog-card__title {
+      text-decoration: underline;
+    }
+  }
+  &__title {
+    color: var(--secondary-color);
+  }
+  &__time {
+    color: var(--secondary-color);
+  }
+}
+.c-blog-card-li {
+  margin-top: 1rem;
+  @media (--medium-viewport) {
+    margin-top: 0;
+  }
+}

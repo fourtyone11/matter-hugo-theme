@@ -1,3 +1,27 @@
 .c-site-section {
   margin-top: 2.5rem;
+  &__title {
+    font-size: 2rem;
+  }
+  &__slider-wrapper {
+    position: relative;
+    display: none;
+    @media (--medium-viewport) {
+      display: block;
+    }
+  }
+  &__list {
+    &--mobile {
+      @media (--medium-viewport) {
+        display: none;
+      }
+    }
+    &--desktop {
+      display: none;
+      @media (--medium-viewport) {
+        width: 85%;
+        display: block;
+      }
+    }
+  }
 }

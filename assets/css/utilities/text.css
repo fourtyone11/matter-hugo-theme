@@ -1,0 +1,8 @@
+.u-leading {
+  &--24 {
+    line-height: 1.5rem;
+  }
+  &--32 {
+    line-height: 2rem;
+  }
+}

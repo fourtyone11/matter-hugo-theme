@@ -1,5 +1,6 @@
 #!/bin/fish
 
-hugo --source '../my-site/' serve
+firefox localhost:1313
 firefox https://gohugo.io/
 firefox https://discourse.gohugo.io/
+hugo --source '../my-site/' serve;

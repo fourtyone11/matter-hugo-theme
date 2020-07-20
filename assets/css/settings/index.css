@@ -1,19 +1,29 @@
 :root {
   --main-color: hsl(0, 0%, 20%);
   --secondary-color: hsl(0, 0%, 93%);
+
   --border-color: hsl(0, 0%, 0%);
   --border-color-light: hsl(0, 0%, 93%);
+
   --bg-color: hsl(0, 0%, 66%);
+  --bg-color-2: hsla(0, 0%, 44%, 0.6);
+  --bg-color-3: hsla(0, 0%, 90%, 0.6);
+
   --shadow-color: hsla(0, 0%, 0%, 0.25);
+  --shadow-color-2: hsla(0,0%,44%);
 
   --extra-color: hsl(227, 11%, 45%);
   --extra-red: hsl(14,100%,50%);
   --extra-orange: hsl(35,100%,58%);
   --extra-ts: hsl(214,51%,33%);
+  
+  --accent-color: hsl(61, 80%, 52%);
 
   --sans-serif: 'Work Sans', sans-serif;
   --serif: 'Playfair Display', serif;
   --monospace: 'Share Tech Mono', monospace;
+
+  --max-content-width: 1312px;
 }
 
 @custom-media --small-viewport (min-width: 20rem);

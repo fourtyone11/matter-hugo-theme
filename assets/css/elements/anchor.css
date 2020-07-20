@@ -1,14 +1,6 @@
 a {
   text-decoration: none;
-  color: var(--secondary-color);
-  border-bottom: 1px solid var(--bg-color);
-
-  &:any-link {
-    text-decoration: none;
+  &:visited {
     color: var(--secondary-color);
-  }
-  &:hover {
-    background-color: var(--shadow-color);
-    border-bottom: 2px solid var(--bg-color);
   }
 }

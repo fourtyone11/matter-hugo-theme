@@ -1,0 +1,47 @@
+.c-slider-button {
+  cursor: pointer;
+  background: var(--secondary-color);
+  border: none;
+  border-radius: 6px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & svg {
+    fill: currentColor;
+  }
+  &:hover {
+    background: var(--bg-color-2);
+  }
+  &:hover svg {
+    color: var(--secondary-color);
+  }
+
+  &--next {
+    right: 0rem;
+    & svg {
+      transform: translateX(2px);
+    }
+  }
+  &--prev {
+    left: 0rem;
+    & svg {
+      transform: rotate(180deg) translateX(2px);
+    }
+  }
+  &--disabled {
+    cursor: initial;
+    &:hover {
+      background: var(--secondary-color);
+    }
+    &:hover svg {
+      color: var(--main-color);
+    }
+    opacity: 0.1;
+  }
+}

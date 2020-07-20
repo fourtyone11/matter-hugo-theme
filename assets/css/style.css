@@ -23,6 +23,7 @@
 /* objects */
 @import "objects/main.css";
 @import "objects/search.css";
+@import "objects/image-wrapper.css";
 /* end */
 
 /* components */
@@ -32,10 +33,14 @@
 @import "components/site-section.css";
 @import "components/bottom-menu.css";
 @import "components/menu.css";
+@import "components/blog-card.css";
+@import "components/slider-button.css";
+@import "components/social-icon.css";
 /* end */
 
 /* utilities */
 @import "utilities/spacing.css";
 @import "utilities/display.css";
 @import "utilities/flex.css";
+@import "utilities/text.css";
 /* end */

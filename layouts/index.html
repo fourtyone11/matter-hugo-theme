@@ -8,8 +8,8 @@
         Here you’ll find my blog and projects
       </p>
     </div>
-    <section class="c-site-section projects">
-      <h2 class="">Projects</h2>
+    <section class="c-site-section">
+      <h2 class="c-site-section__title">Projects</h2>
       <ul class="">
         {{$projectsPages := where .Site.RegularPages "Section" "projects"}}
         {{ range $projectsPages }}
@@ -17,14 +17,30 @@
         {{ end }}
       </ul>
     </section>
-    <section class="c-site-section posts">
-      <h2>Posts</h2>
-      <ul>
+    <section class="c-site-section">
+      <h2 class="c-site-section__title">Posts</h2>
+      <ul class="c-site-section__list c-site-section__list--mobile">
         {{$postsPages := where .Site.RegularPages "Section" "posts"}}
         {{ range $postsPages }}
           {{ .Render "li"}}
         {{ end }}
       </ul>
+      <div class="c-site-section__slider-wrapper">
+        <button aria-label="previous post" type="button" class="c-slider-button c-slider-button--prev">
+          {{partial "svg/arrow_forward_ios-24px.svg"}}
+        </button>
+        <div class="c-site-section__list c-site-section__list--desktop swiper-container">
+          <ul class="swiper-wrapper">
+            {{$postsPages := where .Site.RegularPages "Section" "posts"}}
+            {{ range $postsPages }}
+              {{ .Render "li"}}
+            {{ end }}
+          </ul>
+        </div>
+        <button aria-label="next post" type="button" class="c-slider-button--next c-slider-button">
+          {{partial "svg/arrow_forward_ios-24px.svg"}}
+        </button>
+      </div>
     </section>
   </main>
 {{ end }}

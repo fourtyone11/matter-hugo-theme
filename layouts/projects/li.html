@@ -1,50 +1,59 @@
 <li>
   <article class="c-project-card">
-    <div class="o-image-wrapper">
-      <div class="o-image-wrapper__picture">
-        {{$image := .Resources.GetMatch "preview.{jpg,png}"}}
-        {{with $image}}
-          {{$small := .Resize "480x"}}
-          {{$medium := .Resize "600x"}}
-          <img class="o-image-wrapper__image" srcset="{{$small.Permalink}} 480w, {{$medium.Permalink}} 672w" src="{{$medium.Permalink}}" alt="image for {{$.Title}} project" />
-        {{end}}
-      </div>
-    </div>
     <a class="c-project-card__link" href="{{.Permalink}}">
-      <h2 class="c-project-card__title">{{.Title}}</h2>
-      <div class="c-project-card__description">{{.Description}}</div>
-    </a>
-    <section>
-      <h3>Links</h3>
-      <div class="c-project-card__links-wrapper">
-        <a class="c-project-card__link" href="{{.Params.project_link}}">
-          link to app
-        </a>
-        {{with .Params.project_repo}}
-          <a class="c-project-card__repo" href="{{.}}">
-            {{$url := urls.Parse . }}
-            {{if eq $url.Host "gitlab.com"}}
-              <img width="32" height="32" src="/icons/gitlab-icon-rgb.svg" alt="gitlab project repository" />
-            {{else if eq $url.Host "github.com"}}
-              <img width="32" height="32" src="github.svg" alt="github project repository" />
-            {{end}}
-          </a>
-        {{end}}
-      </div>
-    </section>
-    {{with .Params.tech_stack}}
-      <section class="c-tech-stack">
-        <h3>
-          Tech Stack
-        </h3>
-        <ul class="c-tech-stack__list">
-          {{range .}}
-            <li class="c-tech-stack__item c-tech-stack__item--{{.name}}">
-              <a class="c-tech-stack__link" target="_black" href="{{.link}}">{{.name}}</a>
-            </li>
+      <div class="o-image-wrapper c-project-card__image-wrapper">
+        <div class="o-image-wrapper__picture">
+          {{$image := .Resources.GetMatch "preview.{jpg,png}"}}
+          {{with $image}}
+            {{$small := .Resize "480x"}}
+            {{$medium := .Resize "600x"}}
+            <img class="o-image-wrapper__image" srcset="{{$small.Permalink}} 480w, {{$medium.Permalink}} 672w" src="{{$medium.Permalink}}" alt="image for {{$.Title}} project" />
           {{end}}
-        </ul>
-      {{end}}
+        </div>
+      </div>
+      <section class="c-project-card__meta--mobile">
+        <h3 class="c-project-card__title">{{.Title}}</h3>
+        <div class="c-project-card__description">{{.Description}}</div>
       </section>
+    </a>
+    <div>
+      <section class="c-project-card__meta--desktop">
+        <h3 class="c-project-card__title">{{.Title}}</h3>
+        <div class="c-project-card__description">{{.Description}}</div>
+      </section>
+      <section>
+        <h3>Links</h3>
+        <div class="c-project-card__links-wrapper">
+          <a class="c-project-card__app-link" href="{{.Params.project_link}}">
+            link to app
+          </a>
+          {{with .Params.project_repo}}
+            <a class="c-project-card__repo" href="{{.}}">
+              <span class="u-leading--24 u-mr--8">project repo: </span>
+              {{$url := urls.Parse . }}
+              {{if eq $url.Host "gitlab.com"}}
+                <img width="24" height="24" src="/icons/icons8-gitlab.svg" alt="gitlab project repository" />
+              {{else if eq $url.Host "github.com"}}
+                <img class="c-project-card__github" width="24" height="24" src="/icons/icons8-github.svg" alt="github project repository" />
+              {{end}}
+            </a>
+          {{end}}
+        </div>
+      </section>
+      {{with .Params.tech_stack}}
+        <section class="c-tech-stack">
+          <h3>
+            Tech Stack
+          </h3>
+          <ul class="c-tech-stack__list">
+            {{range .}}
+              <li class="c-tech-stack__item c-tech-stack__item--{{.name}}">
+                <a class="c-tech-stack__link" target="_black" href="{{.link}}">{{.name}}</a>
+              </li>
+            {{end}}
+          </ul>
+        {{end}}
+        </section>
+    </div>
   </article>
 </li>

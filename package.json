@@ -12,7 +12,8 @@
     "chalk": "^4.1.0",
     "commander": "^5.1.0",
     "postcss-import": "^12.0.1",
-    "postcss-nested": "^4.2.3"
+    "postcss-nested": "^4.2.3",
+    "swiper": "^6.0.4"
   },
   "devDependencies": {
     "postcss-custom-media": "^7.0.8"

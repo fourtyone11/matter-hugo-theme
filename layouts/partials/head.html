@@ -22,15 +22,25 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 
+  {{if .Page.IsHome}}
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  {{end}}
+
   {{ if .Site.IsServer }}
 
-    {{ $style := resources.Get "css/style.css" | postCSS (dict "config" "./postcss.config.js") | fingerprint }}
-    <link rel="stylesheet" href="{{ $style.RelPermalink }}" crossorigin="anonymous">
+  {{ $style := resources.Get "css/style.css" | postCSS (dict "config" "./postcss.config.js") | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}" crossorigin="anonymous">
 
   {{ else }}
 
     {{ $style := resources.Get "css/style.css" | postCSS (dict "config" "./postcss.config.js")  | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
 
-{{ end }}
+    {{ end }}
+
+  {{if .Page.IsHome}}
+    {{ $js := resources.Get "js/main.ts" | js.Build }}
+    <script defer src="{{$js.RelPermalink}}"></script>
+  {{else if .Page.IsPage }}
+  {{end}}
 </head>
