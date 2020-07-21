@@ -1,0 +1,9 @@
+{{define "main"}}
+<article class="c-blog-post">
+  <header class="c-blog-post__header">
+    <h1 class="c-blog-post__title">{{.Title}}</h1>
+    <time datetime="{{.Date.Format "2006-01-02"}}">{{.Date.Format "2006-01-02"}}</time>
+  </header>
+  <div class="o-blog-post-content">{{.Content}}</div>
+</article>
+{{end}}

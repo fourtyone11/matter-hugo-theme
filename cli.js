@@ -140,6 +140,21 @@ function setupITCSS() {
   }
 }
 
+function getInitLayerContent(layer, filename) {
+  switch(layer) {
+    case "components":
+      return `.c-${filename}{}`
+    case "elements":
+      return `${filename}{}`
+    case "objects":
+      return `.o-${filename}{}`
+    case "utilities":
+      return `.u-${filename}{}`
+    default:
+      return ""
+  }
+}
+
 program
   .command("init")
   .description("initialize css layers")
@@ -163,7 +178,7 @@ program
     }
     fs.writeFileSync(
       path.resolve(ASSETS_CSS_FOLDER, `${options.layer}`, `${name}.css`),
-      ""
+      getInitLayerContent(options.layer, name)
     );
     const styleFileContent = fs.readFileSync(STYLE_FILE, "utf-8");
     const styleArray = styleFileContent.split("\n");
@@ -205,7 +220,7 @@ program
       (style) => style === `/* ${options.layer} */`
     );
     for (let i = layerIdx; i < styleArray.length; i++) {
-      if (styleArray[i] === `@import "${options.layer}/${name}.css;"`) {
+      if (styleArray[i] === `@import "${options.layer}/${name}.css";`) {
         styleArray.splice(i, 1);
         break;
       }

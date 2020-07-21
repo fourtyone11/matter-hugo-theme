@@ -1,0 +1,22 @@
+.c-autocomplete-list {
+  display: flex;
+  flex-direction: column;
+  background: var(--secondary-color);
+  margin: 0.2rem 0;
+  border-radius: 6px;
+  padding: 1rem;
+  &--active {
+    display: flex;
+  }
+  &__item {
+    cursor: pointer;
+    color: var(--main-color);
+    display: block;
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.5rem 0;
+    &:hover {
+      background: var(--bg-color-2);
+      color: var(--secondary-color);
+    }
+  }
+}

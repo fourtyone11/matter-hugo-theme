@@ -6,9 +6,14 @@
   &__site-name {
     font-size: 20px;
     line-height: 1;
+    color: var(--secondary-color);
 
     @media (--medium-viewport) {
       font-size: 24px;
+      color: var(--main-color);
+      &:visited {
+        color: var(--main-color);
+      }
     }
   }
   &__right-side {

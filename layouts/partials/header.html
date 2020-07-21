@@ -1,8 +1,14 @@
 {{define "header"}}
   <header class="c-header">
-    <span class="c-header__site-name">{{.Site.Title}}</span>
+    {{if .Page.IsHome}}
+      <span href="/" class="c-header__site-name">{{.Site.Title}}</span>
+    {{else}}
+      <a href="/" class="c-header__site-name">{{.Site.Title}}</a>
+    {{end}}
     <div class="c-header__right-side">
-      <input id="search" class="o-search" type="text">
+      <button class="c-icon-button js-search-button">
+        {{partial "svg/search-24px.svg"}}
+      </button>
       {{ $currentPage := . }}
       <ul class="c-menu">
         {{ range .Site.Menus.global }}

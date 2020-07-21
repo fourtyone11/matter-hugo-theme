@@ -9,10 +9,12 @@
   --bg-color-2: hsla(0, 0%, 44%, 0.6);
   --bg-color-3: hsla(0, 0%, 90%, 0.6);
 
+  --overlay-color: hsla(0, 0%, 0%, 0.8);
   --shadow-color: hsla(0, 0%, 0%, 0.25);
   --shadow-color-2: hsla(0,0%,44%);
 
   --extra-color: hsl(227, 11%, 45%);
+  --extra-color-2: hsl(227, 11%, 65%);
   --extra-red: hsl(14,100%,50%);
   --extra-orange: hsl(35,100%,58%);
   --extra-ts: hsl(214,51%,33%);
@@ -24,6 +26,16 @@
   --monospace: 'Share Tech Mono', monospace;
 
   --max-content-width: 1312px;
+
+  --text-base-size: 1rem;
+
+  --text-scale-ratio: 1.2;
+  --text-xs: calc((1rem / var(--text-scale-ratio)) / var(--text-scale-ratio));
+  --text-sm: calc(var(--text-xs) * var(--text-scale-ratio));
+  --text-md: calc(var(--text-sm) * var(--text-scale-ratio));
+  --text-lg: calc(var(--text-md) * var(--text-scale-ratio));
+  --text-xl: calc(var(--text-lg) * var(--text-scale-ratio));
+  --text-xxl: calc(var(--text-xl) * var(--text-scale-ratio));
 }
 
 @custom-media --small-viewport (min-width: 20rem);

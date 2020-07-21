@@ -1,0 +1,19 @@
+.c-search {
+  position: fixed;
+  top: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 2rem;
+  height: 3rem;
+  color: var(--secondary-color);
+
+  &__input {
+    width: 100%;
+    border: 1px solid var(--secondary-color);
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+  }
+}

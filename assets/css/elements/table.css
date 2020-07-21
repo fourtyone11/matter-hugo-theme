@@ -1,0 +1,25 @@
+table {
+  margin-top: calc(1rem + .5vw);
+  border-collapse: collapse;
+  empty-cells: show;
+  font-size: calc(0.9rem + 0.05vw);
+}
+
+tr {
+  border-bottom: 1px solid var(--border-color);
+}
+tr:nth-child(even) {
+  background: var(--bg-color-3);
+  color: var(--main-color);
+}
+
+th {
+  padding: 0.5rem 0.8rem;
+  color: var(--accent-color);
+  background: var(--bg-color-2);
+  text-align: left;
+}
+
+td {
+  padding: 0.5rem 0.8rem;
+}
