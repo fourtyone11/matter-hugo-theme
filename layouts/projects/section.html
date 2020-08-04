@@ -1,0 +1,11 @@
+{{define "main"}}
+<div class="c-project-section">
+  <h2>Все проекты</h2>
+  <ul>
+    {{$projectsPages := where .Site.RegularPages "Section" "projects"}}
+    {{ range $projectsPages }}
+      {{ .Render "summary"}}
+    {{ end }}
+  </ul>
+</div>
+{{end}}

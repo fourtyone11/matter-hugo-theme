@@ -1,0 +1,10 @@
+{{define "main"}}
+<div class="c-blog-section">
+  <ul>
+    {{$postsPages := where .Site.RegularPages "Section" "posts"}}
+    {{range $postsPages}}
+      {{.Render "summary"}}
+    {{end}}
+  </ul>
+</div>
+{{end}}

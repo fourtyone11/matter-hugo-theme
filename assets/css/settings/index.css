@@ -1,17 +1,21 @@
 :root {
-  --main-color: hsl(0, 0%, 20%);
+  --main-color: hsl(0, 0%, 15%);
   --secondary-color: hsl(0, 0%, 93%);
+  --dark-color: hsl(0, 0%, 0%);
 
   --border-color: hsl(0, 0%, 0%);
   --border-color-light: hsl(0, 0%, 93%);
 
   --bg-color: hsl(0, 0%, 66%);
-  --bg-color-2: hsla(0, 0%, 44%, 0.6);
-  --bg-color-3: hsla(0, 0%, 90%, 0.6);
+  --bg-color-dark: hsla(0, 0%, 44%, 0.4);
+  --bg-color-light: hsla(0, 0%, 90%, 0.5);
 
   --overlay-color: hsla(0, 0%, 0%, 0.8);
   --shadow-color: hsla(0, 0%, 0%, 0.25);
   --shadow-color-2: hsla(0,0%,44%);
+
+  --link-color-light: hsl(31,32%,66%);
+  --link-color-dark: hsl(212,72%,26%);
 
   --extra-color: hsl(227, 11%, 45%);
   --extra-color-2: hsl(227, 11%, 65%);
@@ -21,11 +25,12 @@
   
   --accent-color: hsl(61, 80%, 52%);
 
-  --sans-serif: 'Work Sans', sans-serif;
-  --serif: 'Playfair Display', serif;
-  --monospace: 'Share Tech Mono', monospace;
+  --sans-serif: 'Nunito', sans-serif;
+  --serif: 'Lora', serif;
+  --monospace: 'JetBrains Mono', monospace;
 
   --max-content-width: 1312px;
+  --max-blog-post-width: 750px;
 
   --text-base-size: 1rem;
 

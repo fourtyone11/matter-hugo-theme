@@ -2,15 +2,15 @@
   <main aria-role="main">
     <div class="c-hero">
       <h1 class="">
-        Welcome to my website
+        Добро пожаловать на мой сайт
       </h1>
       <p>
-        Here you’ll find my blog and projects
+        Здесь вы найдете мои проекты и мой блог
       </p>
     </div>
     <section class="c-site-section">
-      <h2 class="c-site-section__title">Projects</h2>
-      <ul class="">
+      <h2 class="c-site-section__title">Последние проекты</h2>
+      <ul>
         {{$projectsPages := where .Site.RegularPages "Section" "projects"}}
         {{ range $projectsPages }}
           {{ .Render "li"}}
@@ -18,10 +18,18 @@
       </ul>
     </section>
     <section class="c-site-section">
-      <h2 class="c-site-section__title">Posts</h2>
+      <div class="u-flex u-items-end">
+        <h2 class="c-site-section__title">Последние посты</h2>
+        {{range .Site.Menus.global}}
+          {{if eq .Name "blog"}}
+            {{$.Scratch.Set "blog_path" .URL}}
+          {{end}}
+        {{end}}
+        <a class="c-site-section__link" href="{{$.Scratch.Get "blog_path"}}">all</a>
+      </div>
       <ul class="c-site-section__list c-site-section__list--mobile">
         {{$postsPages := where .Site.RegularPages "Section" "posts"}}
-        {{ range $postsPages }}
+        {{ range first 6 $postsPages }}
           {{ .Render "li"}}
         {{ end }}
       </ul>
@@ -32,7 +40,7 @@
         <div class="c-site-section__list c-site-section__list--desktop swiper-container">
           <ul class="swiper-wrapper">
             {{$postsPages := where .Site.RegularPages "Section" "posts"}}
-            {{ range $postsPages }}
+            {{ range first 6 $postsPages }}
               {{ .Render "li"}}
             {{ end }}
           </ul>

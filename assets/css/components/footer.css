@@ -1,0 +1,33 @@
+.c-footer{
+  align-items: center;
+  justify-content: space-between;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  &__copyright {
+    text-align: center;
+  }
+
+  &__fav-icon {
+    vertical-align: -0.15rem;
+  }
+  &__message {
+    line-height: 1.5;
+  }
+  &__link {
+    color: var(--link-color-dark);
+    border-bottom: 1px solid var(--border-color);
+    &:visited {
+      color: var(--link-color-dark);
+    }
+    &:hover {
+      background-color: var(--bg-color-light);
+      border-bottom: 2px solid var(--border-color);
+    }
+  }
+}

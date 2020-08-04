@@ -3,6 +3,6 @@
   padding: 2px;
   border-radius: 6px;
   &:hover {
-    background: var(--bg-color-3);
+    background: var(--bg-color-light);
   }
 }

@@ -12,4 +12,3 @@ new Swiper('.swiper-container', {
     disabledClass: 'c-slider-button--disabled'
   },
 })
-

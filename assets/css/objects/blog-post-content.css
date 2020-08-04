@@ -30,14 +30,14 @@
   }
 
   a {
-    text-decoration: underline;
-    color: var(--secondary-color);
+    color: var(--link-color-light);
+    border-bottom: 1px solid var(--link-color-light);
     &:hover {
-      text-decoration-color: var(--accent-color);
+      background-color: var(--bg-color-dark);
+      border-bottom: 3px solid var(--link-color-light);
     }
     &:visited {
-      background-color: var(--secondary-color);
-      color: var(--extra-color-2);
+      color: var(--link-color-light);
     }
   }
 }

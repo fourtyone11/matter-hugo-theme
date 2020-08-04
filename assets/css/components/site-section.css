@@ -1,13 +1,26 @@
 .c-site-section {
   margin-top: 2.5rem;
   &__title {
+    margin-top: 0;
+    margin-right: 1rem;
     font-size: 2rem;
+    line-height: 1;
   }
   &__slider-wrapper {
     position: relative;
     display: none;
     @media (--medium-viewport) {
       display: block;
+    }
+  }
+  &__link {
+    font-size: 1.2rem;
+    color: var(--link-color-light);
+    &:any-link {
+      color: var(--link-color-light);
+    }
+    &:hover {
+      text-decoration: underline;
     }
   }
   &__list {

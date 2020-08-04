@@ -43,6 +43,13 @@
 @import "components/search.css";
 @import "components/icon-button.css";
 @import "components/autocomplete-list.css";
+@import "components/footer.css";
+@import "components/svg-icon.css";
+@import "components/blog-summary.css";
+@import "components/blog-section.css";
+@import "components/project-summary.css";
+@import "components/project-post.css";
+@import "components/project-section.css";
 /* end */
 
 /* utilities */

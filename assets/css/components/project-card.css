@@ -65,6 +65,10 @@
   &__repo {
     margin-top: 0.5rem;
     display: flex;
+    color: var(--link-color-light);
+    &:visited {
+      color: var(--link-color-light);
+    }
     &:hover {
       text-decoration: underline;
     }

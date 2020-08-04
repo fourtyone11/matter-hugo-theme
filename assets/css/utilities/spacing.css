@@ -5,6 +5,12 @@
   &r--8 {
     margin-right: 0.5rem;
   }
+  &l--8 {
+    margin-left: 0.5rem;
+  }
+  &b--4 {
+    margin-bottom: 0.5rem;
+  }
 }
 .u-p {
   &x--1 {

@@ -1,0 +1,36 @@
+<li class="c-project-summary-li">
+  <article class="c-project-summary">
+    <a href={{.Permalink}} class="c-project-summary__link">
+      <div class="o-image-wrapper c-project-summary__image-wrapper">
+        <div class="o-image-wrapper__picture">
+          {{$image := .Resources.GetMatch "preview.{jpg,png}"}}
+          {{with $image}}
+            {{$small := .Resize "480x"}}
+            {{$medium := .Resize "600x"}}
+            <img class="o-image-wrapper__image" srcset="{{$small.Permalink}} 480w, {{$medium.Permalink}} 672w" src="{{$medium.Permalink}}" alt="image for {{$.Title}} project" />
+          {{end}}
+        </div>
+      </div>
+    </a>
+    <div class="c-project-summary__meta">
+      <a href="{{.Permalink}}" class="c-project-summary__link">
+        <h3 class="c-project-summary__title">{{.Title}}</h3>
+        <div class="c-project-summary__description">{{.Description}}</div>
+        <a class="c-project-summary__app-link" href="{{.Params.project_link}}">
+          link to app
+        </a>
+        {{with .Params.project_repo}}
+          <a class="c-project-summary__repo" href="{{.}}">
+            <span class="u-leading--24 u-mr--8">project repo: </span>
+            {{$url := urls.Parse . }}
+            {{if eq $url.Host "gitlab.com"}}
+              <img width="24" height="24" src="/icons/icons8-gitlab.svg" alt="gitlab project repository" />
+            {{else if eq $url.Host "github.com"}}
+              <img class="c-project-card__github" width="24" height="24" src="/icons/icons8-github.svg" alt="github project repository" />
+            {{end}}
+          </a>
+        {{end}}
+      </a>
+    </div>
+  </article>
+</li>

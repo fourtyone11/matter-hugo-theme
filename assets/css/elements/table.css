@@ -9,14 +9,14 @@ tr {
   border-bottom: 1px solid var(--border-color);
 }
 tr:nth-child(even) {
-  background: var(--bg-color-3);
+  background: var(--bg-color-light);
   color: var(--main-color);
 }
 
 th {
   padding: 0.5rem 0.8rem;
   color: var(--accent-color);
-  background: var(--bg-color-2);
+  background: var(--dark-color);
   text-align: left;
 }
 

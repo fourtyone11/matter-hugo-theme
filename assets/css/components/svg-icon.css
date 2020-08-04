@@ -1,0 +1,7 @@
+.c-svg-fav-icon{
+  vertical-align: inherit;
+  fill: currentColor;
+  &:hover {
+    color: tomato;
+  }
+}

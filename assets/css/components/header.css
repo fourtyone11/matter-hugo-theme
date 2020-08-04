@@ -1,5 +1,6 @@
 .c-header {
   color: var(--secondary-color);
+
   @media (--medium-viewport) {
     color: var(--main-color);
   }
@@ -23,6 +24,39 @@
       display: flex;
       align-items: center;
     }
+  }
+}
+
+
+.u-header-hidden {
+  animation-name: hide;
+  animation-duration: 400ms;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+.u-header-show {
+  animation-name: show;
+  animation-duration: 400ms;
+  animation-timing-function: ease;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: 0;
+  }
+}
+
+@keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px);
   }
 }
 

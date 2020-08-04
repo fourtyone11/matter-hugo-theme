@@ -1,0 +1,21 @@
+.c-blog-summary {
+  background: var(--bg-color-dark);
+  padding: 1rem;
+  border-radius: 6px;
+  &:hover {
+    box-shadow: 4px 4px 0px var(--shadow-color-2);
+  }
+  &__meta {
+    margin-left: 1rem;
+  }
+  &__link {
+    display: flex;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.c-blog-summary-li:not(:first-of-type) {
+  margin-top: 1.5rem;
+}

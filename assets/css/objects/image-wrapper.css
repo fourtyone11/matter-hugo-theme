@@ -1,6 +1,8 @@
 .o-image-wrapper {
   max-width: 300px;
   max-height: 300px;
+  min-height: 100px;
+  min-width: 100px;
   &__picture {
     padding-top: 100%;
     width: 100%;

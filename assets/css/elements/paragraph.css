@@ -1,11 +1,11 @@
 p {
-  margin-top: calc(0.75rem + .5vw);
+  margin-top: calc(0.5rem + .5vw);
   margin-bottom: 0;
   line-height: calc(1.5em + .2vw);
 
   code {
-    background: var(--bg-color-3);
-    color: var(--main-color);
+    background: var(--link-color-light);
+    color: var(--dark-color);
     padding: 0.1rem 0.2rem;
     border-radius: 2px;
   }
