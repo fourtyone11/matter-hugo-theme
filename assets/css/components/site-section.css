@@ -24,6 +24,7 @@
     }
   }
   &__list {
+    margin-top: 1.5rem;
     &--mobile {
       @media (--medium-viewport) {
         display: none;

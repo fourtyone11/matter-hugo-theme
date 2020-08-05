@@ -1,0 +1,11 @@
+.c-lang-nav{
+  margin-left: 1rem;
+  &__link {
+    &:any-link {
+      color: var(--main-color);
+    }
+    &:hover {
+      border-bottom: 2px solid var(--border-color);
+    }
+  }
+}

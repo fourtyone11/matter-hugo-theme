@@ -22,14 +22,14 @@
         <div class="c-project-card__description">{{.Description}}</div>
       </a>
       <section>
-        <h3>Links</h3>
+        <h3>{{i18n "links"}}</h3>
         <div class="c-project-card__links-wrapper">
           <a class="c-project-card__app-link" href="{{.Params.project_link}}">
-            link to app
+            {{i18n "link_to_app"}}
           </a>
           {{with .Params.project_repo}}
             <a class="c-project-card__repo" href="{{.}}">
-              <span class="u-leading--24 u-mr--8">project repo: </span>
+              <span class="u-leading--24 u-mr--8">{{i18n "project_repository"}}: </span>
               {{$url := urls.Parse . }}
               {{if eq $url.Host "gitlab.com"}}
                 <img width="24" height="24" src="/icons/icons8-gitlab.svg" alt="gitlab project repository" />
@@ -43,7 +43,7 @@
       {{with .Params.tech_stack}}
         <section class="c-tech-stack">
           <h3>
-            Tech Stack
+            {{i18n "tech_stack"}}
           </h3>
           <ul class="c-tech-stack__list">
             {{range .}}

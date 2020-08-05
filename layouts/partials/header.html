@@ -1,10 +1,19 @@
 {{define "header"}}
   <header class="c-header js-header">
+    <div class="u-flex u-items-center">
     {{if .Page.IsHome}}
       <span href="/" class="c-header__site-name">{{.Site.Title}}</span>
     {{else}}
       <a href="/" class="c-header__site-name">{{.Site.Title}}</a>
     {{end}}
+    {{ if .IsTranslated }}
+      <nav class="c-lang-nav">
+        {{ range .Translations }}
+          <a class="c-lang-nav__link" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+        {{ end}}
+      </nav>
+    {{ end }}
+    </div>
     <div class="c-header__right-side">
       <button class="c-icon-button js-search-button">
         {{partial "svg/search-24px.svg"}}

@@ -1,5 +1,6 @@
 {{define "main"}}
 <div class="c-blog-section">
+  <h2>{{i18n "blog"}}</h2>
   <ul>
     {{$postsPages := where .Site.RegularPages "Section" "posts"}}
     {{range $postsPages}}

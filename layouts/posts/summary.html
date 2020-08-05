@@ -7,7 +7,11 @@
           {{with $image}}
             {{$small := .Resize "480x"}}
             {{$medium := .Resize "600x"}}
-            <img class="o-image-wrapper__image" srcset="{{$small.Permalink}} 480w, {{$medium.Permalink}} 672w" src="{{$medium.Permalink}}" alt="image for {{$.Title}} project" />
+            <img
+              class="o-image-wrapper__image"
+              srcset="{{$small.Permalink}} 480w, {{$medium.Permalink}} 672w"
+              src="{{$medium.Permalink}}"
+              alt="image for {{$.Title}} project" />
           {{end}}
         </div>
       </div>

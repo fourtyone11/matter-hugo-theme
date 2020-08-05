@@ -42,7 +42,8 @@
   {{if .Page.IsHome}}
     {{ $js := resources.Get "js/main.ts" | js.Build }}
     <script defer src="{{$js.RelPermalink}}"></script>
-  {{else if .Page.IsPage }}
+    {{ $js := resources.Get "js/weather.ts" | js.Build }}
+    <script defer src="{{$js.RelPermalink}}"></script>
   {{end}}
 
   {{$search := resources.Get "js/search-element.ts" | js.Build}}

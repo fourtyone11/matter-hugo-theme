@@ -1,0 +1,13 @@
+.c-weather{
+  &__button {
+    cursor: pointer;
+    background: var(--bg-color-dark);
+    border: none;
+    border-radius: 6px;
+    padding: .5rem 0.7rem;
+    color: var(--color-secondary);
+    &:hover {
+      background: var(--bg-color-light);
+    }
+  }
+}

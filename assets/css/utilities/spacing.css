@@ -1,6 +1,11 @@
 .u-m {
-  &t--8 {
-    margin-top: 0.5rem;
+  &t {
+    &--8 {
+      margin-top: 0.5rem;
+    }
+    &--16 {
+      margin-top: 1rem;
+    }
   }
   &r--8 {
     margin-right: 0.5rem;

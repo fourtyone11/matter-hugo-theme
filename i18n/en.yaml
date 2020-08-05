@@ -1,0 +1,38 @@
+- id: welcome
+  translation: "Welcome to my website"
+
+- id: welcome_para
+  translation: "Here you'll find my projects and blog"
+
+- id: last_blog_posts
+  translation: "Last blog posts"
+
+- id: last_projects
+  translation: "Last projects"
+
+- id: projects
+  translation: "Projects"
+
+- id: blog
+  translation: "Blog"
+
+- id: all
+  translation: "All"
+
+- id: project_repository
+  translation: "Project repo"
+
+- id: link_to_app
+  translation: "Link to app"
+
+- id: tech_stack
+  translation: "Tech stack"
+
+- id: links
+  translation: "Links"
+
+- id: made_with
+  translation: "Made with"
+
+- id: and
+  translation: "and"

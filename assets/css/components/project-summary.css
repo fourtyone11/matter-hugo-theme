@@ -3,6 +3,9 @@
   padding: 1rem;
   background: var(--bg-color-dark);
   border-radius: 6px;
+  &:hover {
+    box-shadow: 4px 4px 0px var(--shadow-color-2);
+  }
   &__meta {
     margin-left: 2rem;
   }
@@ -10,9 +13,35 @@
     margin-top: 0;
   }
   &__link {
+    &:hover .c-project-summary__title {
+      text-decoration: underline;
+    }
+  }
+  &__app-link {
+    font-weight: bold;
+    color: var(--accent-color);
+    &:any-link {
+      color: var(--accent-color);
+    }
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  &__repo {
+    display: inline-flex;
+    color: var(--link-color-light);
+    &:any-link {
+      color: var(--link-color-light);
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__description {
+    text-decoration: none;
+    margin-top: 0.5rem;
   }
   &__image-wrapper {
 

@@ -1,6 +1,6 @@
 {{define "main"}}
 <div class="c-project-section">
-  <h2>Все проекты</h2>
+  <h2>{{i18n "projects"}}</h2>
   <ul>
     {{$projectsPages := where .Site.RegularPages "Section" "projects"}}
     {{ range $projectsPages }}

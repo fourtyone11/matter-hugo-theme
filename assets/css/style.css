@@ -50,6 +50,9 @@
 @import "components/project-summary.css";
 @import "components/project-post.css";
 @import "components/project-section.css";
+@import "components/lang-nav.css";
+@import "components/hero.css";
+@import "components/weather.css";
 /* end */
 
 /* utilities */

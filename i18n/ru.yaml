@@ -1,0 +1,41 @@
+- id: welcome
+  translation: "Добро пожаловать на мой сайт"
+
+- id: welcome_para
+  translation: "Здесь вы найдете мои проекты и мой блог"
+
+- id: last_blog_posts
+  translation: "Последние посты"
+
+- id: last_projects
+  translation: "Последние проекты"
+
+- id: projects
+  translation: "Проекты"
+
+- id: blog
+  translation: "Блог"
+
+- id: all
+  translation: "Все"
+
+- id: project_repository
+  translation: "Репа проекта"
+
+- id: link_to_app
+  translation: "Ссылка на приложение"
+
+- id: tech_stack
+  translation: "Технический стек"
+
+- id: links
+  translation: "Ссылки"
+
+- id: links
+  translation: "Ссылки"
+
+- id: made_with
+  translation: "Сделано с"
+
+- id: and
+  translation: "и"
