@@ -19,16 +19,22 @@
   }
   &__image-wrapper {
     @media(--medium-viewport) {
-      min-width: 400px;
-      min-height: 400px;
+      max-width: 400px;
+      max-height: 400px;
+      min-width: 250px;
+      min-height: 250px;
       margin-right: 2rem;
     }
+  }
+  &__wrapper {
+    flex: 1 1 70%;
   }
   &__description {
     margin-top: 0.5rem;
     max-width: 350px;
   }
   &__link {
+    flex: 1 0 30%;
     display: block;
     &:any-link {
       color: var(--secondary-color);

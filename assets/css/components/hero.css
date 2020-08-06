@@ -1,5 +1,15 @@
 .c-hero{
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  flex-direction: column;
+  margin-top: 2rem;
+  &__title {
+    margin-top: 0;
+  }
+  @media (--medium-viewport) {
+    margin-top: 0rem;
+    height: 135px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
