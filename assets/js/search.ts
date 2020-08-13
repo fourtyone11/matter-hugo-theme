@@ -6,11 +6,8 @@ let searchButton: HTMLElement;
 if(window.innerWidth >= mediumViewportBreakpoint) {
   searchButton = document.querySelector(".js-search-button");
 } else {
-  console.log('here')
   searchButton = document.querySelector('.js-bottom-menu__search-button')
 }
-
-console.log('searchButton', searchButton)
 
 let header: HTMLElement
 if(window.innerWidth >= mediumViewportBreakpoint) {
@@ -51,7 +48,6 @@ searchButton.addEventListener("mouseenter", () => {
 });
 
 function handleSearchButtonClick() {
-  console.log('click')
   header.classList.add("u-header-hidden");
   header.classList.remove("u-header-show");
   searchElement = document.createElement("search-element");

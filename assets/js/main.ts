@@ -1,5 +1,4 @@
 import Swiper, {Navigation} from 'swiper'
-import { initWeather } from './weather'
 
 Swiper.use([Navigation])
 
@@ -13,5 +12,3 @@ new Swiper('.swiper-container', {
     disabledClass: 'c-slider-button--disabled'
   },
 })
-
-initWeather()

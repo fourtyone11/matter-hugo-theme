@@ -1,0 +1,6 @@
+<svg width="600px" height="600px" version="1.1" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <rect width="600" height="600" fill="#212121" stroke-linecap="round" stroke-width="2" style="paint-order:fill markers stroke"/>
+  <text transform="translate(102 108)" fill="#000000" font-family="sans-serif" font-size="40px" letter-spacing="0px" word-spacing="0px" style="line-height:1.25;shape-inside:url(#rect850);white-space:pre" xml:space="preserve"><tspan x="70.966797" y="240.97626"><tspan fill="#f0f0f0" font-family="sans-serif" font-size="133px" style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal">333</tspan></tspan></text>
+ </g>
+</svg>

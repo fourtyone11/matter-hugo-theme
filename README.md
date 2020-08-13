@@ -1,6 +1,6 @@
 # Matter
 
-![Matter](https://github.com/fourtyone11/matter-hugo-theme)
+![Matter](https://github.com/fourtyone11/matter-hugo-theme/blob/master/images/tn.png)
 
 ## Features
 
@@ -10,13 +10,36 @@
 
 ## Installation
 
-1. in your site folder `hugo mod init <modname>`
-2. in your site config
-```toml
-[module]
-  [[module.imports]]
-    path = "github.com/<theme_path>"
+1. install hugo 
+
+  `pacman -S hugo` for archlinux
+
+  for your os: google it!
+
+2. `hugo new site <site_name>`
+
+3. download a theme
+
 ```
+cd <site_name>
+git init
+git submodule add https://github.com/fourtyone11/matter-hugo-theme themes/matter
+```
+
+4 install dependencies
+
+```
+cd themes/matter
+npm install
+```
+
+4. add theme in config
+
+```toml
+theme = "matter"
+```
+
+5. run server `hugo server`
 
 ## Code hightlighting
 

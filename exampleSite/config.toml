@@ -1,0 +1,89 @@
+baseURL = "http://localhost:1313"
+enableEmoji = true
+languageCode = "ru"
+title = "Андрей Парфенов"
+author = "Андрей Парфенов"
+defaultContentLanguage = "ru"
+theme = "matter"
+
+[languages]
+  [languages.ru]
+    languageName="ru"
+    weight = 1
+  [languages.en]
+    languageName="en"
+    weight = 2
+
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "dracula"
+    tabWidth = 4
+
+[params]
+  author = "Андрей Парфенов"
+
+  [params.socials]
+    facebook = ""
+    twitter = ""
+    instagram = ""
+    youtube = ""
+    github = "https://github.com/fourtyone11"
+    gitlab = "https://gitlab.com/asleeppiano"
+    linkedin = ""
+    slack = ""
+    stackoverflow = ""
+    medium= ""
+
+[[languages.en.menu.global]]
+  name = "projects"
+  weight = 1
+  identifier = "projects"
+  url = "/en/projects/"
+
+[[languages.en.menu.global]]
+  name = "blog"
+  weight = 10
+  identifier = "posts"
+  url = "/en/posts/"
+
+[[languages.en.menu.global]]
+  name = "about"
+  weight = 15
+  identifier = "about"
+  url = "/en/about/"
+
+[[languages.ru.menu.global]]
+  name = "проекты"
+  weight = 1
+  identifier = "projects"
+  url = "/projects/"
+
+[[languages.ru.menu.global]]
+  name = "блог"
+  weight = 10
+  identifier = "posts"
+  url = "/posts/"
+
+[[languages.ru.menu.global]]
+  name = "обо мне"
+  weight = 15
+  identifier = "about"
+  url = "/about/"
+
+[outputFormats]
+  [outputFormats.Critical]
+    mediaType = "application/json"
+    baseName = "critical"
+    isPlainText = true
+
+[outputs]
+    home = [ "HTML", "JSON", "RSS", "CRITICAL" ]
+    page = [ "HTML" ]
