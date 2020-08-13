@@ -12,4 +12,4 @@
 
 [module]
     [module.hugoVersion]
-    min = "0.56.0"
+    min = "0.74.0"

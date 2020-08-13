@@ -4,12 +4,12 @@
 name = "Matter"
 license = "MIT"
 licenselink = ""
-description = ""
-homepage = ""
-tags = []
-features = []
-min_version = "0.56.0"
+description = "theme for my personal website"
+homepage = "https://github.com/fourtyone11/matter-hugo-theme"
+tags = ["blog", "personal", "portfolio", "responsive", "dark", "multilingual"]
+features = ["blog"]
+min_version = "0.74.0"
 
 [author]
   name = "Andrey Parfenov"
-  homepage = ""
+  homepage = "https://andreyparfenov.com"

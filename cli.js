@@ -43,22 +43,26 @@ function setupITCSS() {
 
 /* components */
 /* end */
+
+/* utilities */
+/* end */
   `;
 
   const settingsContent = `
 :root {
   --main-color: hsl(0, 0%, 20%);
   --secondary-color: hsl(0, 0%, 93%);
-  --border-color: hsl(0, 0%, 0%);
-  --bg-color: hsl(0, 0%, 66%);
-  --shadow-color: hsla(0, 0%, 0%, 0.25);
+  --accent-color: hsl(31, 32%, 66%);
+  --extra-color: hsl(227, 11%, 45%);
 
-  --sans-serif: 'Work Sans', sans-serif;
-  --serif: 'Playfair Display', serif;
-  --monospace: 'Share Tech Mono', monospace;
+  --sans-serif: sans-serif;
+  --serif: serif;
+  --monospace: monospace;
 }
 
-@custom-media --small-viewport (min-width: 42rem);
+@custom-media --small-viewport (min-width: 20rem);
+@custom-media --medium-viewport (min-width: 42rem);
+@custom-media --large-viewport (min-width: 66rem);
   `;
 
   const genericIndexContent = `
