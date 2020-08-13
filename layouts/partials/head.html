@@ -27,27 +27,35 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   {{end}}
 
+  {{ $jsBundleOpts := dict "minify" true}}
   {{ if .Site.IsServer }}
+    {{ $style := resources.Get "css/style.css" | postCSS (dict "config" "./postcss.config.js") | fingerprint }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}" crossorigin="anonymous">
 
-  {{ $style := resources.Get "css/style.css" | postCSS (dict "config" "./postcss.config.js") | fingerprint }}
-  <link rel="stylesheet" href="{{ $style.RelPermalink }}" crossorigin="anonymous">
+    {{if .Page.IsHome}}
+      {{ $js := resources.Get "js/main.ts" | js.Build }}
+      <script defer src="{{$js.RelPermalink}}"></script>
+    {{end}}
+
+    {{ $js := resources.Get "js/search.ts" | js.Build }}
+    <script defer src="{{$js.RelPermalink}}"></script>
+    {{$search := resources.Get "js/search-element.ts" | js.Build}}
+    <script type="module" src="{{$search.RelPermalink}}"></script>
 
   {{ else }}
-
     {{ $style := resources.Get "css/style.css" | postCSS (dict "config" "./postcss.config.js")  | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
 
-    {{ end }}
+    {{if .Page.IsHome}}
+      {{ $js := resources.Get "js/main.ts" | js.Build $jsBundleOpts }}
+      <script defer src="{{$js.RelPermalink}}"></script>
+    {{end}}
 
-  {{if .Page.IsHome}}
-    {{ $js := resources.Get "js/main.ts" | js.Build }}
+    {{ $js := resources.Get "js/search.ts" | js.Build $jsBundleOpts }}
     <script defer src="{{$js.RelPermalink}}"></script>
-    {{ $js := resources.Get "js/weather.ts" | js.Build }}
-    <script defer src="{{$js.RelPermalink}}"></script>
-  {{end}}
+    {{$search := resources.Get "js/search-element.ts" | js.Build $jsBundleOpts}}
+    <script type="module" src="{{$search.RelPermalink}}"></script>
+  {{ end }}
 
-  {{$search := resources.Get "js/search-element.ts" | js.Build}}
-  <script type="module" src="{{$search.RelPermalink}}"></script>
-  {{$search := resources.Get "js/search.ts" | js.Build}}
-  <script defer src="{{$search.RelPermalink}}"></script>
+
 </head>

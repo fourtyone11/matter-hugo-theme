@@ -1,0 +1,35 @@
+.c-project-page{
+  --calculator-bg: #99e1d8;
+  --todo-text: rgb(240, 240, 240);
+
+  padding: 1rem;
+  margin-top: 2rem;
+  border-radius: 6px;
+
+  &__title {
+    margin-top: 0;
+    &--calculator {
+      color: var(--calculator-bg);
+    }
+    &--333todo {
+      color: var(--todo-text);
+    }
+  }
+  &__images {
+    margin-top: 1rem;
+  }
+  &__image {
+    width: 100%;
+    height: auto;
+  }
+  &__image-wrapper {
+    max-width: 800px;
+    border-radius: 6px;
+
+    min-height: auto;
+    max-height: 100vh;
+    height: auto;
+  }
+  &__image-picture {
+  }
+}

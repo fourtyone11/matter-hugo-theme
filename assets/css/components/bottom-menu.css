@@ -2,8 +2,7 @@
   position:fixed;
   bottom: 2px;
   width: 95%;
-  left: 50%;
-  transform: translate(-50%);
+  left: 2.5%;
   background-color: var(--secondary-color);
   color: var(--main-color);
   border: 1px solid var(--border-color);

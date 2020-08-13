@@ -41,4 +41,8 @@
       }
     }
   }
+  &__coming-soon {
+    margin-top: 1rem;
+    color: var(--bg-color);
+  }
 }

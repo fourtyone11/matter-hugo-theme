@@ -1,10 +1,19 @@
+.c-project-card-li:not(:first-of-type) {
+  margin-top:2rem;
+}
 .c-project-card {
   display: block;
   @media (--medium-viewport) {
     display: flex;
   }
+
   &__meta {
+    color: var(--color-secondary);
     &--mobile{
+      color: var(--color-secondary);
+      &:visited {
+        color: var(--color-secondary);
+      }
       @media(--medium-viewport) {
         display: none;
       }
@@ -12,8 +21,15 @@
     &--desktop {
       display: none;
       margin-top: 0;
+      color: var(--color-secondary);
+      &:visited {
+        color: var(--color-secondary);
+      }
       @media(--medium-viewport) {
         display: block;
+      }
+      &:hover .c-project-card__title {
+        background-size: 100%;
       }
     }
   }
@@ -23,24 +39,36 @@
       max-height: 400px;
       min-width: 250px;
       min-height: 250px;
-      margin-right: 2rem;
+      width: 100%;
     }
   }
+  &__image-picture {
+    box-shadow: 6px 6px 0px var(--shadow-color-2);
+  }
   &__wrapper {
-    flex: 1 1 70%;
+    flex: 1 1 auto;
+    max-width: 500px;
+    @media(--medium-viewport) {
+      margin-left: 2rem;
+    }
   }
   &__description {
     margin-top: 0.5rem;
     max-width: 350px;
   }
   &__link {
-    flex: 1 0 30%;
+    flex: 1 1 auto;
+    max-width: 400px;
     display: block;
+    color: var(--secondary-color);
     &:any-link {
       color: var(--secondary-color);
     }
-    &:hover .c-project-card__title {
-      text-decoration: underline;
+    &:hover ~ .c-project-card__wrapper .c-project-card__title {
+      background-size: 100%;
+    }
+    &:hover > .c-project-card__meta--mobile .c-project-card__title {
+      background-size: 100%;
     }
   }
   &__links-wrapper {
@@ -49,7 +77,6 @@
     margin-top: 0.5rem;
   }
   &__app-link {
-    margin-top: 0.5rem;
     font-weight: bold;
     color: var(--accent-color);
     &:visited {
@@ -61,6 +88,13 @@
   }
   &__title {
     font-size: 1.5rem;
+    display: inline-block;
+
+    background: linear-gradient(to right, var(--dark-color), var(--dark-color));
+    background-repeat: no-repeat;
+    background-size: 0%;
+    background-position: left;
+    transition: background-size 0.5s ease;
     @media(--medium-viewport) {
       margin-top: 0;
     }

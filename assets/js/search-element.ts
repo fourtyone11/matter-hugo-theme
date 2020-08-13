@@ -264,6 +264,7 @@ export class MyElement extends LitElement {
     }
   }
 
+  // TODO make better hightlight
   highlightMatches(match: any) {
     const templateArray = []
     let currIndex = 0
@@ -297,7 +298,7 @@ export class MyElement extends LitElement {
                     (i) => html`<li class="c-search-list__item">
                     <a href="${i.item.uri}" class="c-search-list__link">
                       <div>
-                        <span class="c-item-title">${this.highlightMatches(i.matches.find(match => match.key === 'title'))}</span>
+                        <span class="c-item-title">${this.highlightMatches(i.matches.find((match: any) => match && match.key === 'title'))}</span>
                       </div>
                       ${i.item.tags ? html`
                         <div>

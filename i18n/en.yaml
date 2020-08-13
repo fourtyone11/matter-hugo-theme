@@ -36,3 +36,9 @@
 
 - id: and
   translation: "and"
+
+- id: images
+  translation: "images"
+
+- id: coming_soon
+  translation: "Coming soon"

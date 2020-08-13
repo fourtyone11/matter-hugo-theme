@@ -3,8 +3,12 @@
   <h2>{{i18n "blog"}}</h2>
   <ul>
     {{$postsPages := where .Site.RegularPages "Section" "posts"}}
-    {{range $postsPages}}
-      {{.Render "summary"}}
+    {{ with $postsPages }}
+      {{range .}}
+        {{.Render "summary"}}
+      {{end}}
+    {{else}}
+      {{i18n "coming_soon"}}
     {{end}}
   </ul>
 </div>

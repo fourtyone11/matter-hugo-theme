@@ -2,10 +2,16 @@
   margin-left: 1rem;
   &__link {
     &:any-link {
-      color: var(--main-color);
+      color: var(--secondary-color);
+      @media(--medium-viewport) {
+        color: var(--main-color);
+      }
     }
     &:hover {
-      border-bottom: 2px solid var(--border-color);
+      border-bottom: 2px solid var(--secondary-color);
+      @media(--medium-viewport) {
+        border-bottom: 2px solid var(--border-color);
+      }
     }
   }
 }

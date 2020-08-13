@@ -104,11 +104,9 @@ function success(position: any) {
   const latitude  = position.coords.latitude;
   const longitude = position.coords.longitude;
   console.log('lat', latitude, 'lon', longitude)
-  const status = document.querySelector<HTMLDivElement>('.c-weather__status');
 
-  status.textContent = '';
   const weather = cachedWeather(latitude, longitude)
-  weather.then(w => {
+  weather.then((w: any) => {
     renderWeatherIcon(w.weather[0].id)
     weatherButton.remove()
     console.log('weather', w)
@@ -128,25 +126,33 @@ function handleWeatherButton() {
     status.textContent === 'Locating...'
     navigator.geolocation.getCurrentPosition(success, error, { enableHighAccuracy: true });
   } else {
-    const randomCity = getRandomInt(0, defaultLatLon.length)
+    const randomCity = defaultLatLon[getRandomInt(0, defaultLatLon.length)]
     const weather = cachedWeather(randomCity.lat, randomCity.lon)
-    weather.then(w => {
-      renderWeatherIcon(w.weather[0].id)
+    weather.then((w: any) => {
+      renderWeather(w)
       weatherButton.remove()
-      console.log('weather', w)
     })
   }
 }
 
+function renderWeather(w: any) {
+  renderWeatherIcon(w.weather[0].id)
+  const status = document.querySelector<HTMLDivElement>('.c-weather__status');
+  status.innerHTML = `<div class="u-mb--8">${w.weather[0].description} ${Math.floor(w.main.temp)} &#8451;</div>
+  ${w.name}, ${w.sys.country}`
+  console.log('weather', w)
+}
+
 weatherButton.addEventListener('click', handleWeatherButton)
 
-const randomCity = getRandomInt(0, defaultLatLon.length)
+const randomCity = defaultLatLon[getRandomInt(0, defaultLatLon.length)]
 
-if(window.location.host !== 'localhost:1313') {
-  const weather = fetchWeather(randomCity.lat, randomCity.lon)
-  weather.then(w => {
-    renderWeatherIcon(w.weather[0].id)
-    weatherButton.remove()
-    console.log('weather', w)
-  })
+
+export function initWeather() {
+  if(window.location.host !== 'localhost:1313') {
+    const weather = fetchWeather(randomCity.lat, randomCity.lon)
+    weather.then(w => {
+      renderWeather(w)
+    })
+  }
 }

@@ -1,6 +1,9 @@
 .c-weather{
   display: flex;
+  align-items: center;
+  margin-top: 1rem;
   &__button {
+    height: 64px;
     cursor: pointer;
     background: var(--bg-color-dark);
     border: none;
@@ -10,6 +13,14 @@
     &:hover {
       background: var(--bg-color-light);
     }
+  }
+  &__status {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    text-align: center;
+  }
+  @media (--medium-viewport) {
+    margin-top: 0rem;
   }
 }
 .svg-sun {

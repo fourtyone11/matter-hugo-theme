@@ -39,3 +39,9 @@
 
 - id: and
   translation: "и"
+
+- id: images
+  translation: "картинки"
+
+- id: coming_soon
+  translation: "Скоро здесь все будет"

@@ -3,11 +3,9 @@
     <a href={{.Permalink}} class="c-project-summary__link">
       <div class="o-image-wrapper c-project-summary__image-wrapper">
         <div class="o-image-wrapper__picture">
-          {{$image := .Resources.GetMatch "preview.{jpg,png}"}}
+          {{$image := .Resources.GetMatch "preview.svg"}}
           {{with $image}}
-            {{$small := .Resize "480x"}}
-            {{$medium := .Resize "600x"}}
-            <img class="o-image-wrapper__image" srcset="{{$small.Permalink}} 480w, {{$medium.Permalink}} 672w" src="{{$medium.Permalink}}" alt="image for {{$.Title}} project" />
+            <img class="o-image-wrapper__image" src="{{$image.Permalink}}" alt="image for {{$.Title}} project" />
           {{end}}
         </div>
       </div>
@@ -18,10 +16,10 @@
         <div class="c-project-summary__description">{{.Description}}</div>
       </a>
       <div class="u-mt--16">
-        <a class="c-project-summary__app-link" href="{{.Params.project_link}}">{{i18n "link_to_app"}}</a>
+        <a target="_blank" class="c-project-summary__app-link" href="{{.Params.project_link}}">{{i18n "link_to_app"}}</a>
         &nbsp;
         {{with .Params.project_repo}}
-          <a class="c-project-summary__repo" href="{{.}}">
+          <a target="_blank" class="c-project-summary__repo" href="{{.}}">
             <span class="u-leading--24 u-mr--8">{{i18n "project_repository"}}: </span>
             {{$url := urls.Parse . }}
             {{if eq $url.Host "gitlab.com"}}

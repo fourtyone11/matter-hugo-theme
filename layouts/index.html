@@ -15,18 +15,27 @@
       <div class="u-flex u-items-end">
         <h2 class="c-site-section__title">{{i18n "last_projects"}}</h2>
         {{range .Site.Menus.global}}
-          {{if eq .Name "projects"}}
+          {{if eq .Identifier "projects"}}
             {{$.Scratch.Set "projects_path" .URL}}
           {{end}}
         {{end}}
-        <a class="c-site-section__link" href="{{$.Scratch.Get "projects_path"}}">{{i18n "all"}}</a>
-      </div>
-      <ul class="c-site-section__list">
         {{$projectsPages := where .Site.RegularPages "Section" "projects"}}
-        {{ range $projectsPages }}
-          {{ .Render "li"}}
-        {{ end }}
+        {{with $projectsPages}}
+          <a class="c-site-section__link" href="{{$.Scratch.Get "projects_path"}}">{{i18n "all"}}</a>
+        {{end}}
+      </div>
+      {{$projectsPages := where .Site.RegularPages "Section" "projects"}}
+      {{with $projectsPages}}
+      <ul class="c-site-section__list">
+          {{ range . }}
+            {{ .Render "li"}}
+          {{ end }}
       </ul>
+      {{else}}
+        <div class="c-site-section__coming-soon">
+          {{i18n "coming_soon"}}
+        </div>
+      {{end}}
     </section>
     <section class="c-site-section">
       <div class="u-flex u-items-end">
@@ -36,30 +45,38 @@
             {{$.Scratch.Set "blog_path" .URL}}
           {{end}}
         {{end}}
-        <a class="c-site-section__link" href="{{$.Scratch.Get "blog_path"}}">{{i18n "all"}}</a>
-      </div>
-      <ul class="c-site-section__list c-site-section__list--mobile">
         {{$postsPages := where .Site.RegularPages "Section" "posts"}}
-        {{ range first 6 $postsPages }}
-          {{ .Render "li"}}
-        {{ end }}
-      </ul>
-      <div class="c-site-section__slider-wrapper">
-        <button aria-label="previous post" type="button" class="c-slider-button c-slider-button--prev">
-          {{partial "svg/arrow_forward_ios-24px.svg"}}
-        </button>
-        <div class="c-site-section__list c-site-section__list--desktop swiper-container">
-          <ul class="swiper-wrapper">
-            {{$postsPages := where .Site.RegularPages "Section" "posts"}}
-            {{ range first 6 $postsPages }}
-              {{ .Render "li"}}
-            {{ end }}
-          </ul>
-        </div>
-        <button aria-label="next post" type="button" class="c-slider-button--next c-slider-button">
-          {{partial "svg/arrow_forward_ios-24px.svg"}}
-        </button>
+        {{with $postsPages}}
+          <a class="c-site-section__link" href="{{$.Scratch.Get "blog_path"}}">{{i18n "all"}}</a>
+        {{end}}
       </div>
+      {{$postsPages := where .Site.RegularPages "Section" "posts"}}
+      {{with $postsPages}}
+        <ul class="c-site-section__list c-site-section__list--mobile">
+          {{ range first 6 . }}
+            {{ .Render "li"}}
+          {{ end }}
+        </ul>
+        <div class="c-site-section__slider-wrapper">
+          <button aria-label="previous post" type="button" class="c-slider-button c-slider-button--prev">
+            {{partial "svg/arrow_forward_ios-24px.svg"}}
+          </button>
+          <div class="c-site-section__list c-site-section__list--desktop swiper-container">
+            <ul class="swiper-wrapper">
+                {{ range first 6 . }}
+                  {{ .Render "li"}}
+                {{ end }}
+            </ul>
+          </div>
+          <button aria-label="next post" type="button" class="c-slider-button--next c-slider-button">
+            {{partial "svg/arrow_forward_ios-24px.svg"}}
+          </button>
+        </div>
+      {{else}}
+          <div class="c-site-section__coming-soon">
+            {{i18n "coming_soon"}}
+          </div>
+      {{end}}
     </section>
   </main>
 {{ end }}

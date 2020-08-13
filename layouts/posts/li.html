@@ -1,8 +1,8 @@
 <li class="u-px--1 c-blog-card-li swiper-slide">
   <article class="c-blog-card">
     <a href={{.Permalink}} class="c-blog-card__link">
-      <div class="o-image-wrapper">
-        <div class="o-image-wrapper__picture">
+      <div class="o-image-wrapper c-blog-card__image">
+        <div class="o-image-wrapper__picture c-blog-card__image-picture">
           {{$image := .Resources.GetMatch "preview.{jpg,png}"}}
           {{with $image}}
             {{$small := .Resize "480x"}}

@@ -1,12 +1,14 @@
 <div class="c-weather js-weather">
-  <div class="c-weather__status">
+  <div class="u-flex u-items-center">
+    <div class="c-weather__icon">
+      {{partial "svg/sun.svg"}}
+      {{partial "svg/cloud.svg"}}
+      {{partial "svg/rain_cloud.svg"}}
+      {{partial "svg/sun_cloud.svg"}}
+      {{partial "svg/snowflake.svg"}}
+    </div>
+    <div class="c-weather__status">
+    </div>
   </div>
-  <div class="c-weather__icon">
-    {{partial "svg/sun.svg"}}
-    {{partial "svg/cloud.svg"}}
-    {{partial "svg/rain_cloud.svg"}}
-    {{partial "svg/sun_cloud.svg"}}
-    {{partial "svg/snowflake.svg"}}
-  </div>
-  <button type="button" class="c-weather__button js-weather-button">get weather</button>
+  <button type="button" class="c-weather__button js-weather-button">get<br/>weather</button>
 </div>

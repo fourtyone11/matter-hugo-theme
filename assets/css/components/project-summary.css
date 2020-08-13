@@ -11,10 +11,22 @@
   }
   &__title {
     margin-top: 0;
+    background: linear-gradient(to right, var(--dark-color), var(--dark-color));
+    background-repeat: no-repeat;
+    background-size: 0%;
+    background-position: left;
+    transition: background-size 0.5s ease;
   }
   &__link {
+    color: var(--secondary-color);
+    &:visited {
+      color: var(--secondary-color);
+    }
     &:hover .c-project-summary__title {
-      text-decoration: underline;
+      background-size: 100%;
+    }
+    &:hover ~ .c-project-summary__meta .c-project-summary__title {
+      background-size: 100%;
     }
   }
   &__app-link {
@@ -44,7 +56,8 @@
     margin-top: 0.5rem;
   }
   &__image-wrapper {
-
+    min-width: 150px;
+    min-height: 150px;
   }
 }
 

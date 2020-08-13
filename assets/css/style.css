@@ -48,11 +48,11 @@
 @import "components/blog-summary.css";
 @import "components/blog-section.css";
 @import "components/project-summary.css";
-@import "components/project-post.css";
 @import "components/project-section.css";
 @import "components/lang-nav.css";
 @import "components/hero.css";
 @import "components/weather.css";
+@import "components/project-page.css";
 /* end */
 
 /* utilities */
