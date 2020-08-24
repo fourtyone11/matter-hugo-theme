@@ -29,7 +29,7 @@ const state: State = {
 const stateHandler = {
   set: (obj: State, prop: string, value: Array<Object>) => {
     if (prop === "index" && searchElement) {
-      searchElement.setAttribute("searchIndex", JSON.stringify(state.index));
+      searchElement.setAttribute("searchIndex", JSON.stringify(value));
     }
     obj[prop] = value;
     return true;
@@ -38,11 +38,13 @@ const stateHandler = {
 
 const stateProxy = new Proxy(state, stateHandler);
 
-searchButton.addEventListener("mouseenter", () => {
+searchButton.addEventListener("click", () => {
+  console.log('hell')
   fetch("/index.json")
     .then((res) => res.json())
     .then((json) => {
-      stateProxy.index = json;
+      console.log('json', json)
+      stateProxy['index'] = json;
     })
     .catch((e) => console.error(e));
 });
