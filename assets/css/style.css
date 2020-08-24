@@ -53,6 +53,8 @@
 @import "components/hero.css";
 @import "components/weather.css";
 @import "components/project-page.css";
+@import "components/not-found.css";
+@import "components/animations.css";
 /* end */
 
 /* utilities */

@@ -19,6 +19,9 @@
   &b--4 {
     margin-bottom: 0.25rem;
   }
+  &r--40 {
+    margin-right: 2.5rem;
+  }
 }
 .u-p {
   &x--1 {

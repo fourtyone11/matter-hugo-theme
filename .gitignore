@@ -1,3 +1,4 @@
 node_modules/
 public/
 assets/js/weather_app_id.ts
+exampleSite/public

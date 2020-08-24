@@ -45,3 +45,6 @@
 
 - id: coming_soon
   translation: "Скоро здесь все будет"
+
+- id: page_not_found
+  translation: "Страница не найдена"

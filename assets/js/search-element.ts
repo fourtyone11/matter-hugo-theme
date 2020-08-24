@@ -7,8 +7,6 @@ import {
   internalProperty,
 } from "lit-element";
 
-import Fuse from "fuse.js";
-
 /**
  * The static search element.
  */
@@ -93,7 +91,7 @@ export class MyElement extends LitElement {
       color: var(--main-color);
     }
     .c-item-title .c-item-match {
-       background: hsl(11, 100%, 81%);
+      background: hsl(11, 100%, 81%);
     }
     @keyframes show {
       0% {
@@ -129,18 +127,8 @@ export class MyElement extends LitElement {
   @internalProperty()
   private activeElement?: HTMLLIElement | null;
 
-  @internalProperty()
-  private fuse: Fuse<any, any>;
-
-  @internalProperty()
-  private fuseOptions = {
-    keys: ["title", "tags", "uri"],
-    includeMatches: true
-  };
-
   connectedCallback() {
     super.connectedCallback();
-    this.fuse = new Fuse(this.searchIndex, this.fuseOptions);
     setTimeout(() => {
       this.shadowRoot
         .querySelector<HTMLInputElement>(".c-search-input")
@@ -150,12 +138,12 @@ export class MyElement extends LitElement {
 
   attributeChangedCallback(
     name: string,
-    oldValue: any | null,
+    _oldValue: any | null,
     newValue: any | null
   ) {
     if (newValue && name === "searchindex") {
       this.searchIndex = JSON.parse(newValue);
-      this.fuse = new Fuse(this.searchIndex, this.fuseOptions);
+      console.log('searchIndex', this.searchIndex)
     }
   }
 
@@ -174,25 +162,36 @@ export class MyElement extends LitElement {
   }
 
   private handleOverlayInput({ target }: { target: HTMLInputElement }) {
-    const res = this.fuse.search(target.value);
-    if (!Array.isArray(res)) {
+    if (target.value.length > 1) {
       this.searchList = [];
-      this.searchList.push(res);
+      this.searchIndex.forEach((item) => {
+        const regexp = new RegExp(target.value, "gim");
+        const res = item.title.matchAll(regexp);
+        for (const match of res) {
+          this.searchList.push({
+            uri: item.uri,
+            title: item.title,
+            tags: item.tags,
+            start: match.index,
+            end: match.index + match[0].length,
+          });
+        }
+      });
     } else {
-      this.searchList = res;
+      this.searchList = [];
     }
 
-    if (res.length > 0) {
+    if (this.searchList.length > 0) {
       this.showList = true;
       setTimeout(() => {
         if (this.activeElement) {
           this.activeElement.classList.remove("active");
-          this.activeElement.tabIndex = -1
+          this.activeElement.tabIndex = -1;
         }
         this.activeElement = this.getFirstElementOfList();
         if (this.activeElement) {
           this.activeElement.classList.add("active");
-          this.activeElement.tabIndex = 0
+          this.activeElement.tabIndex = 0;
         }
       }, 0);
     } else {
@@ -218,17 +217,17 @@ export class MyElement extends LitElement {
         e.preventDefault();
         if (this.activeElement) {
           this.activeElement.classList.remove("active");
-          this.activeElement.tabIndex = -1
+          this.activeElement.tabIndex = -1;
           const next = this.activeElement.nextElementSibling as HTMLLIElement;
           if (next) {
             this.activeElement = next;
             this.activeElement.classList.add("active");
-            this.activeElement.tabIndex = 0
+            this.activeElement.tabIndex = 0;
           } else {
             this.activeElement = this.getFirstElementOfList();
             if (this.activeElement) {
               this.activeElement.classList.add("active");
-              this.activeElement.tabIndex = 0
+              this.activeElement.tabIndex = 0;
             }
           }
         }
@@ -259,23 +258,32 @@ export class MyElement extends LitElement {
           this.activeElement.querySelector<HTMLAnchorElement>("a")?.click();
         }
         break;
+      case "Escape": {
+        e.preventDefault();
+        const closeEvent = new Event("close");
+        this.dispatchEvent(closeEvent);
+        break;
+      }
       case "Tab":
         e.preventDefault();
     }
   }
 
-  // TODO make better hightlight
   highlightMatches(match: any) {
-    const templateArray = []
-    let currIndex = 0
-    match.indices.forEach((i: any) => {
-      templateArray.push(html`${match.value.slice(currIndex, i[0])}`);
-      templateArray.push(html`<span class="c-item-match">${match.value.slice(i[0], i[1] + 1)}</span>`)
-      currIndex = i[1] + 1
-    })
-    templateArray.push(html`${match.value.slice(currIndex)}`);
-
-    return html`${templateArray.map(item => item)}`
+    const templateArray = [];
+    let currIndex = 0;
+    if (match) {
+      templateArray.push(html`${match.title.slice(currIndex, match.start)}`);
+      templateArray.push(
+        html`<span class="c-item-match"
+          >${match.title.slice(match.start, match.end)}</span
+        >`
+      );
+      currIndex = match.end;
+      templateArray.push(html`${match.title.slice(currIndex)}`);
+      return html`${templateArray.map((item) => item)}`;
+    }
+    return null;
   }
 
   render() {
@@ -291,20 +299,19 @@ export class MyElement extends LitElement {
           ${this.showList
             ? html`<ul class="c-search-list">
                 ${this.searchList
-                  .filter((i) => 
-                    i.item.title !== "" && i.item.title !== undefined
-                  )
+                  .filter((item) => item.title)
                   .map(
-                    (i) => html`<li class="c-search-list__item">
-                    <a href="${i.item.uri}" class="c-search-list__link">
+                    (item) => html`<li class="c-search-list__item">
+                    <a href="${item.uri}" class="c-search-list__link">
                       <div>
-                        <span class="c-item-title">${this.highlightMatches(i.matches.find((match: any) => match && match.key === 'title'))}</span>
+                        <span class="c-item-title">${this.highlightMatches(item)}</span>
                       </div>
-                      ${i.item.tags ? html`
-                        <div>
-                          [<span class="c-item-tags">${i.item.tags}</span>]
-                        </div>
-                      ` : ""}
+                      ${item.tags ? html`<div>
+                                [<span class="c-item-tags">${item.tags}</span>]
+                              </div>
+                            `
+                          : ""
+                      }
                     <a/>
                   </li>`
                   )}

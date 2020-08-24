@@ -1,0 +1,53 @@
+.c-animations{}
+
+.c-move-animation {
+  animation-name: move;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-delay: 1s;
+  animation-timing-function: linear;
+  position: absolute;
+  &--2 {
+    animation-delay: 0s;
+    animation-name: move-2;
+    animation-delay: 4s;
+    left: -100%;
+    animation-duration: 10s;
+  }
+}
+
+@keyframes move {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity:1;
+    transform: translateX(200%);
+  }
+  50.1% {
+    opacity: 0;
+    transform: translateX(200%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(200%);
+  }
+}
+@keyframes move-2 {
+  40% {
+    opacity:1;
+    transform: translateX(0%);
+  }
+  90% {
+    transform: translateX(200%);
+    opacity:1;
+  }
+  90.1%{
+    opacity: 0;
+    transform: translateX(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(0%);
+  }
+}

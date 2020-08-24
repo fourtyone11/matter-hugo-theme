@@ -1,7 +1,7 @@
 baseURL = "http://localhost:1313"
 enableEmoji = true
 languageCode = "ru"
-title = "Андрей Парфенов"
+title = "Разработчик"
 author = "Андрей Парфенов"
 defaultContentLanguage = "ru"
 theme = "matter"
@@ -9,9 +9,11 @@ theme = "matter"
 [languages]
   [languages.ru]
     languageName="ru"
+    title="Разрабротчик"
     weight = 1
   [languages.en]
     languageName="en"
+    title="Developer"
     weight = 2
 
 

@@ -1,13 +1,22 @@
 .c-project-summary{
   display: flex;
+  flex-direction: column;
   padding: 1rem;
   background: var(--bg-color-dark);
   border-radius: 6px;
+
+  @media (--medium-viewport) {
+    flex-direction: row;
+  }
+
   &:hover {
     box-shadow: 4px 4px 0px var(--shadow-color-2);
   }
   &__meta {
-    margin-left: 2rem;
+    margin-top: 1rem;
+    @media (--medium-viewport) {
+      margin-left: 2rem;
+    }
   }
   &__title {
     margin-top: 0;
@@ -32,6 +41,7 @@
   &__app-link {
     font-weight: bold;
     color: var(--accent-color);
+    line-height: 1.6;
     &:any-link {
       color: var(--accent-color);
     }
@@ -42,6 +52,7 @@
 
   &__repo {
     display: inline-flex;
+    line-height: 1.6;
     color: var(--link-color-light);
     &:any-link {
       color: var(--link-color-light);
