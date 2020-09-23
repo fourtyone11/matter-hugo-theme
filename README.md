@@ -53,7 +53,13 @@ config [docs](https://gohugo.io/getting-started/configuration-markup/#highlight)
 
 ## Config
 
-see `exampleSite/config.toml`
+See `exampleSite/config.toml`
+
+## Content
+
+Put project content in `content/projects` directory
+
+Put blog content in `content/posts` directory
 
 ## Blog settings
 
