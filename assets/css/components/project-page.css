@@ -1,13 +1,28 @@
 .c-project-page{
-  --calculator-bg: #99e1d8;
-  --todo-text: rgb(240, 240, 240);
-
-  padding: 1rem;
   margin-top: 2rem;
   border-radius: 6px;
 
+  padding-bottom: 5rem;
+
+  &__section {
+    &--tech {
+      margin-top: 0rem;
+      margin-left: 2rem;
+    }
+    &--header {
+      margin-top: 0rem;
+      display: flex;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+
   &__title {
     margin-top: 0;
+    font-size: var(--text-xxl);
     &--calculator {
       color: var(--calculator-bg);
     }
@@ -15,12 +30,56 @@
       color: var(--todo-text);
     }
   }
+  &__description {
+    font-size: var(--text-lg);
+    line-height: 1.6;
+  }
+  &__links-wrapper {
+    margin-top: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__app-link {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+    &:visited {
+      color: var(--accent-color);
+    }
+    span {
+      transition: transform 0.5s ease-in-out;
+    }
+    &:hover span {
+      display: inline-block;
+      transform: translate(-5rem);
+      text-decoration: underline;
+    }
+    &:hover span:after {
+      position: absolute;
+      right: -3rem;
+      content: " -> go";
+    }
+  }
   &__images {
     margin-top: 1rem;
+  }
+  &__image-picture {
+    display: block;
+    transition: transform 0.5s ease-in-out;
+    overflow: hidden;
+    &:hover {
+      transform: scale3d(0.95,0.95,1) !important;
+    }
   }
   &__image {
     width: 100%;
     height: auto;
+    transition: transform 0.5s ease-in-out;
+    &:hover {
+      transform: scale3d(1.15,1.15,1) !important;
+    }
   }
   &__image-wrapper {
     max-width: 800px;
@@ -30,6 +89,19 @@
     max-height: 100vh;
     height: auto;
   }
-  &__image-picture {
+  &__tech-wrapper {
+    display: flex;
+  }
+  &__tech {
+    font-size: var(--text-md);
+    cursor: pointer;
+    flex: 1 2 50%;
+    transition: flex 1s ease;
+    &:not(:first-of-type) {
+      margin-left: 0.3rem;
+    }
+  }
+  &__repo {
+    margin-top: 0.5rem;
   }
 }

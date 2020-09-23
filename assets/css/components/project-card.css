@@ -41,6 +41,7 @@
     width: 100%;
   }
   &__image-picture {
+    display: block;
     box-shadow: 6px 6px 0px var(--shadow-color-2);
   }
   &__wrapper {
@@ -103,6 +104,7 @@
   &__repo {
     margin-top: 0.5rem;
     display: flex;
+    align-items: center;
     color: var(--link-color-light);
     &:visited {
       color: var(--link-color-light);

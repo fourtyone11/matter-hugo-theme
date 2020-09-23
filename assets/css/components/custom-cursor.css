@@ -1,0 +1,23 @@
+.c-custom-cursor {
+  pointer-events: none;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  position: fixed;
+  will-change: transform;
+  width: 60px;
+  height: 60px;
+  padding: 0.5rem;
+  background-color: transparent;
+  border: 2px solid white;
+  color: var(--secondary-color);
+  border-radius: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.875rem;
+  transition: width 0.3s ease, height 0.3s ease;
+  @media(--medium-viewport) {
+    display: flex;
+  }
+}

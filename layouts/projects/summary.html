@@ -23,9 +23,9 @@
             <span class="u-leading--24 u-mr--8">{{i18n "project_repository"}}: </span>
             {{$url := urls.Parse . }}
             {{if eq $url.Host "gitlab.com"}}
-              <img width="24" height="24" src="/icons/icons8-gitlab.svg" alt="gitlab project repository" />
+                <i class="fab fa-gitlab"></i>
             {{else if eq $url.Host "github.com"}}
-              <img class="c-project-summary__github" width="24" height="24" src="/icons/icons8-github.svg" alt="github project repository" />
+                <i class="fab fa-github"></i>
             {{end}}
           </a>
         {{end}}

@@ -51,3 +51,25 @@
     transform: translateX(0%);
   }
 }
+
+[data-aos="swipeup"] {
+  &.aos-animate {
+    animation-name: swipeup;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+  }
+}
+
+@keyframes swipeup {
+  0% {
+    opacity: 0.5;
+    -webkit-clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0 100%);
+    clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0 100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+

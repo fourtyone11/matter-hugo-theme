@@ -1,57 +1,69 @@
 {{define "main"}}
   <article class="c-project-page">
-    <header class="c-project-page__header">
-      <h1 class="c-project-page__title c-project-page__title--{{.Title}}">{{.Title | title}}</h1>
-      <div class="c-project-page__description">{{.Description}}</div>
-    </header>
-    <section>
-      <h3 class="c-project-page__title--{{.Title}}">{{i18n "links"}}</h3>
-      <div class="c-project-card__links-wrapper">
-        <a target="_blank" class="c-project-card__app-link" href="{{.Params.project_link}}">
-          {{i18n "link_to_app"}}
-        </a>
-        {{with .Params.project_repo}}
-          <a target="_blank" class="c-project-card__repo" href="{{.}}">
-            <span class="u-leading--24 u-mr--8">{{i18n "project_repository"}}: </span>
-            {{$url := urls.Parse . }}
-            {{if eq $url.Host "gitlab.com"}}
-              <img width="24" height="24" src="/icons/icons8-gitlab.svg" alt="gitlab project repository" />
-            {{else if eq $url.Host "github.com"}}
-              <img class="c-project-card__github" width="24" height="24" src="/icons/icons8-github.svg" alt="github project repository" />
-            {{end}}
+    <div class="c-project-page__top">
+      <section class="c-project-page__section c-project-page__section--header">
+        <div class="u-mr--8">
+          <h1 class="c-project-page__title c-project-page__title--{{.Title}}">{{.Title | title}}</h1>
+          <div class="c-project-page__description">{{.Description}}</div>
+        </div>
+        <div class="c-project-page__links-wrapper">
+          <a target="_blank" class="c-project-card__app-link" href="{{.Params.project_link}}">
+            {{i18n "link_to_app"}}
           </a>
+          {{with .Params.project_repo}}
+            <a target="_blank" class="c-project-page__repo" href="{{.}}">
+              {{$url := urls.Parse . }}
+              {{if eq $url.Host "gitlab.com"}}
+                <i class="c-social-icon c-social-icon--white fab fa-gitlab"></i>
+              {{else if eq $url.Host "github.com"}}
+                <i class="c-social-icon c-social-icon--white fab fa-github"></i>
+              {{end}}
+            </a>
+          {{end}}
+        </div>
+      </section>
+      {{with .Params.tech_stack}}
+        <section class="c-project-page__section c-project-page__section--tech">
+          <h3 class="c-project-page__title c-project-page__title--{{$.Title}}">
+            {{i18n "tech_stack"}}
+          </h3>
+          <ul class="c-project-page__tech-wrapper">
+            {{range $index, $element := .}}
+              <li class="c-project-page__tech">
+                <div class="c-tech-stack__item c-tech-stack--{{.name}}">
+                  <a class="c-tech-card__link" target="_black" href="{{.link}}">{{.name}}</a>
+                  <div style="" class="c-tech-card__description">
+                    {{ .description }}
+                  </div>
+                </div>
+              </li>
+            {{end}}
+          </ul>
+        </section>
+      {{end}}
+    </div>
+    <section class="c-project-page__section">
+      <h3 class="c-project-page__title c-project-page__title--{{.Title}}">{{i18n "images" | title}}</h3>
+      <div class="c-project-page__images">
+        {{$images := .Resources.Match "image*.{jpg,png,webp}"}}
+        {{with $images}}
+          {{ range $index, $element := . }}
+            <div class="c-project-page__ic">
+              <picture class="c-project-page__image-picture">
+                {{$small := .Resize "480x"}}
+                {{$medium := .Resize "1000x"}}
+                {{$big := .Resize "1920x"}}
+                {{ if eq .MediaType "image/webp" }}
+                  <source srcset="{{$small.Permalink}} 480w, {{$medium.Permalink}} 672w, {{$big.Permalink}} 1024w">
+                  {{ else }}
+                    <img class="c-project-page__image" srcset="{{$small.Permalink}} 480w, {{$medium.Permalink}} 672w, {{$big.Permalink}} 1024w" src="{{$big.Permalink}}" alt="screenshot of {{$.Title}} project" />
+                  {{end}}
+              </picture>
+            </div>
+          {{end}}
         {{end}}
       </div>
     </section>
-    {{with .Params.tech_stack}}
-      <section class="c-tech-stack">
-        <h3 class="c-project-page__title--{{$.Title}}">
-          {{i18n "tech_stack"}}
-        </h3>
-        <ul class="c-tech-stack__list">
-          {{range .}}
-            <li class="c-tech-stack__item c-tech-stack__item--{{.name}}">
-              <a class="c-tech-stack__link" target="_black" href="{{.link}}">{{.name}}</a>
-            </li>
-          {{end}}
-        </ul>
-      {{end}}
-      </section>
-      <section>
-        <h3 class="c-project-page__title--{{.Title}}">{{i18n "images" | title}}</h3>
-      <div class="c-project-page__images">
-          {{$images := .Resources.Match "image*.{jpg,png}"}}
-          {{with $images}}
-          {{ range . }}
-            <div class="c-project-page__image-picture">
-              {{$small := .Resize "480x"}}
-              {{$medium := .Resize "1000x"}}
-              {{$big := .Resize "1920x q100"}}
-              <img class="c-project-page__image" srcset="{{$small.Permalink}} 480w, {{$medium.Permalink}} 672w, {{$big.Permalink}} 1024w" src="{{$big.Permalink}}" alt="screenshot of {{$.Title}} project" />
-            </div>
-           {{end}}
-          {{end}}
-      </div>
-      </section>
   </article>
 {{end}}
+

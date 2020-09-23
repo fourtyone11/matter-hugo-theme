@@ -4,6 +4,14 @@
   &-col {
     flex-direction: column;
   }
+  &__item--auto {
+    flex: 1 1 auto;
+  }
+  &-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 .u-items {
   &-center {

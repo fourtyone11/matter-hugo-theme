@@ -2,6 +2,8 @@ import throttle from 'lodash-es/throttle'
 
 const mediumViewportBreakpoint = 672
 
+let hasIndex = false
+
 let searchButton: HTMLElement;
 if(window.innerWidth >= mediumViewportBreakpoint) {
   searchButton = document.querySelector(".js-search-button");
@@ -39,14 +41,17 @@ const stateHandler = {
 const stateProxy = new Proxy(state, stateHandler);
 
 searchButton.addEventListener("click", () => {
-  console.log('hell')
-  fetch("/index.json")
-    .then((res) => res.json())
-    .then((json) => {
-      console.log('json', json)
-      stateProxy['index'] = json;
-    })
-    .catch((e) => console.error(e));
+  if(!hasIndex) {
+    console.log('fetch index json')
+    fetch("/index.json")
+      .then((res) => res.json())
+      .then((json) => {
+        console.log('json', json)
+        stateProxy['index'] = json;
+        hasIndex = true
+      })
+      .catch((e) => console.error(e));
+  }
 });
 
 function handleSearchButtonClick() {

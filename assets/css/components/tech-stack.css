@@ -14,20 +14,45 @@
       border: none;
     }
   }
+
   &__item {
     display: inline-block;
     padding: 0.3rem;
     border-radius: 6px;
     background-color: var(--extra-color);
+    &:not(:first-of-type) {
+      margin-left: 0.5rem;
+    }
+
+
+    &--html {
+      background: var(--extra-html);
+    }
+    &--js,
+    &--javascript {
+      background: var(--extra-yellow);
+      & * {
+        color: black !important;
+      }
+    }
+    &--css {
+      background: var(--extra-blue);
+    }
     &--svelte {
-      background-color: var(--extra-red);
+      background-color: var(--extra-red) !important;
     }
     &--firebase {
-      background-color: var(--extra-orange);
+      background-color: var(--extra-orange) !important;
+      & * {
+        color: black !important;
+      }
     }
     &--typescript,
     &--ts{
-      background-color: var(--extra-ts);
+      background-color: var(--extra-ts) !important;
+    }
+    &--routify {
+      background-color: var(--extra-routify) !important;
     }
   }
 }

@@ -4,7 +4,7 @@
 name = "Matter"
 license = "MIT"
 licenselink = ""
-description = "theme for my personal website"
+description = "dark theme for developer portfolio"
 homepage = "https://github.com/fourtyone11/matter-hugo-theme"
 tags = ["blog", "personal", "portfolio", "responsive", "dark", "multilingual"]
 features = ["blog"]

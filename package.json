@@ -10,11 +10,11 @@
     "chalk": "^4.1.0",
     "commander": "^5.1.0",
     "lit-element": "^2.3.1",
+    "locomotive-scroll": "^3.5.4",
     "lodash-es": "^4.17.15",
     "postcss-import": "^12.0.1",
     "postcss-nested": "^4.2.3",
-    "swiper": "^6.0.4",
-    "velocity-animate": "^2.0.6"
+    "swiper": "^6.0.4"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^3.7.0",

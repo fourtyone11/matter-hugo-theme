@@ -25,10 +25,10 @@
     color: var(--secondary-color);
   }
   &__image {
-    padding: 0rem 0.6rem;
   }
   &__image-picture {
     box-shadow: 6px 6px 0px var(--shadow-color-2);
+    display: block;
   }
 }
 .c-blog-card-li {

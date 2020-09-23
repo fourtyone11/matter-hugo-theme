@@ -43,5 +43,5 @@
 - id: coming_soon
   translation: "Coming soon"
 
-- id: not_found
+- id: page_not_found
   translation: "Page not found"

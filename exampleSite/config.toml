@@ -1,19 +1,18 @@
 baseURL = "http://localhost:1313"
 enableEmoji = true
-languageCode = "ru"
-title = "Разработчик"
-author = "Андрей Парфенов"
-defaultContentLanguage = "ru"
+title = "Developer"
+author = "Andrey Parfenov"
+defaultContentLanguage = "en"
 theme = "matter"
 
 [languages]
-  [languages.ru]
-    languageName="ru"
-    title="Разрабротчик"
-    weight = 1
   [languages.en]
     languageName="en"
     title="Developer"
+    weight = 1
+  [languages.ru]
+    languageName="ru"
+    title="Разрабротчик"
     weight = 2
 
 
@@ -30,7 +29,8 @@ theme = "matter"
     tabWidth = 4
 
 [params]
-  author = "Андрей Парфенов"
+  author = "Andrey Parfenov"
+  fontAwesomeKit = "<script src='https://kit.fontawesome.com/1c61329d77.js' crossorigin='anonymous'></script>"
 
   [params.socials]
     facebook = ""
@@ -40,52 +40,48 @@ theme = "matter"
     github = "https://github.com/fourtyone11"
     gitlab = "https://gitlab.com/asleeppiano"
     linkedin = ""
-    slack = ""
-    stackoverflow = ""
     medium= ""
 
 [[languages.en.menu.global]]
   name = "projects"
   weight = 1
   identifier = "projects"
-  url = "/en/projects/"
+  url = "/projects/"
 
 [[languages.en.menu.global]]
   name = "blog"
   weight = 10
   identifier = "posts"
-  url = "/en/posts/"
+  url = "/posts/"
 
 [[languages.en.menu.global]]
   name = "about"
-  weight = 15
+  weight = 10
   identifier = "about"
-  url = "/en/about/"
+  url = "/about/"
 
 [[languages.ru.menu.global]]
   name = "проекты"
   weight = 1
   identifier = "projects"
-  url = "/projects/"
+  url = "/ru/projects/"
 
 [[languages.ru.menu.global]]
   name = "блог"
   weight = 10
   identifier = "posts"
-  url = "/posts/"
+  url = "/ru/posts/"
 
 [[languages.ru.menu.global]]
   name = "обо мне"
   weight = 15
   identifier = "about"
-  url = "/about/"
-
-[outputFormats]
-  [outputFormats.Critical]
-    mediaType = "application/json"
-    baseName = "critical"
-    isPlainText = true
+  url = "/ru/about/"
 
 [outputs]
-    home = [ "HTML", "JSON", "RSS", "CRITICAL" ]
+    home = [ "HTML", "JSON", "RSS" ]
     page = [ "HTML" ]
+
+[markup.goldmark.renderer]
+  unsafe = true
+

@@ -2,14 +2,27 @@
   <article class="c-blog-card">
     <a href={{.Permalink}} class="c-blog-card__link">
       <div class="o-image-wrapper c-blog-card__image">
-        <div class="o-image-wrapper__picture c-blog-card__image-picture">
-          {{$image := .Resources.GetMatch "preview.{jpg,png}"}}
-          {{with $image}}
+        {{$image := .Resources.Match "preview.{png,jpg,webp}"}}
+        {{with $image}}
+          {{ range . }}
             {{$small := .Resize "480x"}}
             {{$medium := .Resize "600x"}}
-            <img class="o-image-wrapper__image" srcset="{{$small.Permalink}} 480w, {{$medium.Permalink}} 672w" src="{{$medium.Permalink}}" alt="image for {{$.Title}} project" />
+            <picture class="o-image-wrapper__picture c-blog-card__image-picture">
+              {{ if eq .MediaType "image/webp" }}
+                <source srcset="{{$small.Permalink}} 480w, {{$medium.Permalink}} 672w">
+                {{ else }}
+                  <img
+                    class="o-image-wrapper__image"
+                    srcset="{{$small.Permalink}} 480w, {{$medium.Permalink}} 672w"
+                    src="{{$medium.Permalink}}"
+                    alt="screenshot of {{$.Title}} project"
+                    />
+                {{ end }}
+              {{end}}
+            </picture>
+          {{else}}
+            <div class="o-image-wrapper__placeholder"></div>
           {{end}}
-        </div>
       </div>
       <h3 class="c-blog-card__title">{{.Title}}</h3>
       <time class="c-blog-card__time" datetime="{{.Date.Format "2006-02-01"}}">{{.Date.Format "2006-02-01"}}</time>

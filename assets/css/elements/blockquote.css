@@ -1,0 +1,5 @@
+blockquote {
+  margin-left: 0;
+  padding-left: 2rem;
+  border-left: 4px solid var(--accent-color);
+}

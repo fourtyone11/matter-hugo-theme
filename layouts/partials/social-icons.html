@@ -1,16 +1,4 @@
 {{ $icon_size := "32px" }}
-{{ with .Site.Params.socials.stackoverflow}}
-<a
-  href="{{ . }}"
-  target="_blank"
-  class="c-social-icon"
-  title="Stack Overflow link"
-  rel="noopener"
-  aria-label="follow on Stack Overflow——Opens in a new window"
->
-  {{partial "svg/iconmonstr-stackoverflow-2.svg"}}
-</a>
-{{ end }}
 {{ with .Site.Params.socials.facebook }}
 <a
   href="{{ . }}"
@@ -20,7 +8,7 @@
   rel="noopener"
   aria-label="follow on Facebook——Opens in a new window"
 >
-  {{partial "svg/iconmonstr-facebook-2.svg"}}
+  <i class="c-social-icon fab fa-facebook-f"></i>
 </a>
 {{ end }}
 {{ with .Site.Params.socials.twitter}}
@@ -32,7 +20,7 @@
   rel="noopener"
   aria-label="follow on Twitter——Opens in a new window"
 >
-  {{partial "svg/iconmonstr-twitter-2.svg"}}
+  <i class="c-social-icon fab fa-twitter"></i>
 </a>
 {{ end }}
 {{ with .Site.Params.socials.instagram}}
@@ -44,7 +32,7 @@
   rel="noopener"
   aria-label="follow on Instagram——Opens in a new window"
 >
-  {{partial "svg/iconmonstr-instagram-12.svg"}}
+  <i class="c-social-icon fab fa-instagram"></i>
 </a>
 {{ end }}
 {{ with .Site.Params.socials.youtube }}
@@ -56,7 +44,7 @@
   rel="noopener"
   aria-label="follow on Youtube——Opens in a new window"
 >
-  {{partial "svg/iconmonstr-youtube-2.svg"}}
+  <i class="c-social-icon fab fa-youtube"></i>
 </a>
 {{ end }}
 {{ with .Site.Params.socials.linkedin}}
@@ -68,7 +56,7 @@
   rel="noopener"
   aria-label="follow on LinkedIn——Opens in a new window"
 >
-  {{partial "svg/iconmonstr-linkedin-2.svg"}}
+  <i class="c-social-icon fab fa-linkedin-in"></i>
 </a>
 {{ end }}
 {{ with .Site.Params.socials.github}}
@@ -80,7 +68,7 @@
   rel="noopener"
   aria-label="follow on Github——Opens in a new window"
 >
-  <img width="32" height="32" src="/icons/icons8-github.svg" alt="github" />
+  <i class="c-social-icon fab fa-github"></i>
 </a>
 {{ end }}
 {{ with .Site.Params.socials.gitlab }}
@@ -92,7 +80,7 @@
   rel="noopener"
   aria-label="follow on Gitlab——Opens in a new window"
 >
-  <img width="32" height="32" src="/icons/icons8-gitlab-black.svg" alt="gitlab" />
+  <i class="c-social-icon fab fa-gitlab"></i>
 </a>
 {{ end }}
 {{ with .Site.Params.socials.medium }}
@@ -104,19 +92,6 @@
   rel="noopener"
   aria-label="follow on Medium——Opens in a new window"
 >
-  {{partial "svg/iconmonstr-medium-2.svg"}}
+  <i class="c-social-icon fab fa-medium-m"></i>
 </a>
 {{ end }}
-{{ with .Site.Params.socials.slack }}
-<a
-  href="{{ . }}"
-  target="_blank"
-  class="c-social-icon"
-  title="Slack link"
-  rel="noopener"
-  aria-label="follow on Slack——Opens in a new window"
->
-  {{partial "svg/iconmonstr-slack-3.svg"}}
-</a>
-{{ end }}
-

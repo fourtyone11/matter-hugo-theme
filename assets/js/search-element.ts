@@ -31,6 +31,10 @@ export class MyElement extends LitElement {
       height: 100vh;
       background-color: var(--overlay-color);
     }
+    u-overlay-remove {
+      transition: opacity 0.5s ease;
+      opacity: 0;
+    }
     .o-search-wrapper {
       position: relative;
       top: 1.25rem;
@@ -143,7 +147,6 @@ export class MyElement extends LitElement {
   ) {
     if (newValue && name === "searchindex") {
       this.searchIndex = JSON.parse(newValue);
-      console.log('searchIndex', this.searchIndex)
     }
   }
 

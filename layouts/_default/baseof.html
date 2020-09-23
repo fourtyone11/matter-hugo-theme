@@ -3,14 +3,16 @@
   {{- partial "head.html" . -}}
   <body>
     <div class="o-root-container">
-      {{block "header" .}}
-      {{end}}
-      {{ block "main" . }}
-      {{ end }}
+        <div class="o-main-container">
+          {{block "header" .}}
+          {{end}}
+          {{ block "main" . }}
+          {{ end }}
+        </div>
+        {{ block "footer" . }}
+        {{ end }}
+        {{block "bottom-menu" .}}
+        {{end}}
     </div>
-    {{ block "footer" . }}
-    {{ end }}
-    {{block "bottom-menu" .}}
-    {{end}}
   </body>
 </html>

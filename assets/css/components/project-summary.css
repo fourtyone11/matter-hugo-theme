@@ -52,6 +52,7 @@
 
   &__repo {
     display: inline-flex;
+    align-items: center;
     line-height: 1.6;
     color: var(--link-color-light);
     &:any-link {

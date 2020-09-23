@@ -1,0 +1,11 @@
+kbd {
+  padding: 0.3rem;
+  background: var(--bg-color-dark);
+  border-radius: 4px;
+}
+
+mark {
+  background-color: var(--accent-color);
+  padding: 0.3rem;
+  border-radius: 4px;
+}

@@ -2,6 +2,14 @@
   display: inline-block;
   padding: 2px;
   border-radius: 6px;
+  color: var(--main-color);
+  font-size: 1.5rem;
+  &--white {
+    color: var(--secondary-color);
+    &:hover {
+      background: var(--bg-color-dark);
+    }
+  }
   &:hover {
     background: var(--bg-color-light);
   }

@@ -2,12 +2,25 @@
   <article class="c-project-card">
     <a class="c-project-card__link" href="{{.Permalink}}">
       <div class="o-image-wrapper c-project-card__image-wrapper">
-          {{$image := .Resources.GetMatch "preview.svg"}}
-          {{with $image}}
-        <div class="o-image-wrapper__picture c-project-card__image-picture">
-            <img class="o-image-wrapper__image" src="{{.Permalink}}" alt="image for {{$.Title}} project" />
-        </div>
-      {{end}}
+        {{$image := .Resources.Match "preview.{png,jpg,webp}"}}
+        {{with $image}}
+          {{ range . }}
+            {{$small := .Resize "480x"}}
+            {{$medium := .Resize "600x"}}
+              <picture class="o-image-wrapper__picture c-project-card__image-picture">
+                {{ if eq .MediaType "image/webp" }}
+                  <source srcset="{{$small.Permalink}} 480w, {{$medium.Permalink}} 672w">
+                {{ else }}
+                  <img
+                    class="o-image-wrapper__image"
+                    srcset="{{$small.Permalink}} 480w, {{$medium.Permalink}} 672w"
+                    src="{{$medium.Permalink}}"
+                    alt="screenshot of {{$.Title}} project"
+                  />
+                {{ end }}
+              </picture>
+            {{end}}
+        {{end}}
       </div>
       <section class="c-project-card__meta--mobile">
         <h3 class="c-project-card__title">{{.Title}}</h3>
@@ -30,9 +43,9 @@
               <span class="u-leading--24 u-mr--8">{{i18n "project_repository"}}: </span>
               {{$url := urls.Parse . }}
               {{if eq $url.Host "gitlab.com"}}
-                <img width="24" height="24" src="/icons/icons8-gitlab.svg" alt="gitlab project repository" />
+                <i class="fab fa-gitlab"></i>
               {{else if eq $url.Host "github.com"}}
-                <img class="c-project-card__github" width="24" height="24" src="/icons/icons8-github.svg" alt="github project repository" />
+                <i class="fab fa-github"></i>
               {{end}}
             </a>
           {{end}}

@@ -23,6 +23,8 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 
+  {{ $.Site.Params.FontAwesomeKit | safeHTML }}
+
   {{if .Page.IsHome}}
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   {{end}}
@@ -37,11 +39,6 @@
       <script defer src="{{$js.RelPermalink}}"></script>
     {{end}}
 
-    {{if eq .Page.Kind "404"}}
-      {{ $js := resources.Get "js/not-found-animation.ts" | js.Build }}
-      <script defer src="{{$js.RelPermalink}}"></script>
-    {{end}}
-
     {{ $js := resources.Get "js/search.ts" | js.Build }}
     <script defer src="{{$js.RelPermalink}}"></script>
     {{$search := resources.Get "js/search-element.ts" | js.Build}}
@@ -53,11 +50,6 @@
 
     {{if .Page.IsHome}}
       {{ $js := resources.Get "js/main.ts" | js.Build $jsBundleOpts }}
-      <script defer src="{{$js.RelPermalink}}"></script>
-    {{end}}
-
-    {{if eq .Page.Kind "404"}}
-      {{ $js := resources.Get "js/not-found-animation.ts" | js.Build $jsBundleOpts }}
       <script defer src="{{$js.RelPermalink}}"></script>
     {{end}}
 

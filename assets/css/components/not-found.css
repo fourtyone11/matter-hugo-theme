@@ -19,16 +19,12 @@
   &__phrase {
     font-family: var(--monospace);
     white-space: nowrap;
-    font-size: 2rem;
+    font-size: 1rem;
     &:not(:first-of-type) {
       margin-left: 1rem;
     }
-  }
-}
-
-.c-404 {
-  font-size: 4rem;
-  &--xl {
-    font-size: 6rem;
+    @media (--medium-viewport) {
+      font-size: 2rem;
+    }
   }
 }
