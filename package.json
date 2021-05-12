@@ -14,7 +14,7 @@
     "lodash-es": "^4.17.15",
     "postcss-import": "^12.0.1",
     "postcss-nested": "^4.2.3",
-    "swiper": "^6.0.4"
+    "swiper": "^6.5.1"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^3.7.0",
